@@ -1,0 +1,970 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- =========================
+       BASIC DOCUMENT SETTINGS
+  ========================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100b20">
+  <meta name="color-scheme" content="dark">
+
+  <title>Feathoria Studio — Create Beautiful Quotes & Poems</title>
+
+  <meta name="description"
+        content="Create beautiful quote graphics and poetry designs with Feathoria Studio. Customize typography, backgrounds, colors and layouts, then download your creations.">
+
+  <meta name="keywords"
+        content="quote maker, poetry maker, quote generator, typography editor, Feathoria">
+
+  <meta name="author" content="Feathoria">
+
+  <!-- =========================
+       ICONS
+  ========================== -->
+  <link rel="icon" href="logo.jpg" type="image/jpeg">
+  <link rel="apple-touch-icon" href="logo.jpg">
+
+  <!-- =========================
+       CONNECTION OPTIMIZATION
+  ========================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+
+  <!-- =========================
+       GOOGLE FONTS
+       Load stylesheet asynchronously
+       to avoid blocking page rendering.
+  ========================== -->
+
+  <link
+    rel="preload"
+    as="style"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&family=Dancing+Script:wght@400;700&family=Lora:wght@400;700&family=Cormorant+Garamond:wght@400;700&family=Montserrat:wght@400;700&family=Libre+Baskerville:wght@400;700&display=swap"
+    onload="this.onload=null;this.rel='stylesheet'">
+
+  <noscript>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&family=Dancing+Script:wght@400;700&family=Lora:wght@400;700&family=Cormorant+Garamond:wght@400;700&family=Montserrat:wght@400;700&family=Libre+Baskerville:wght@400;700&display=swap">
+  </noscript>
+
+  <!-- =========================
+       MAIN STYLESHEET
+  ========================== -->
+  <link rel="stylesheet" href="own.css">
+
+  <!-- =========================
+       GOOGLE ANALYTICS
+  ========================== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-339FX3FFSG"></script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-339FX3FFSG');
+  </script>
+
+  <!-- =========================
+       GOOGLE ADSENSE
+  ========================== -->
+  <script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3455727846422624"
+    crossorigin="anonymous">
+  </script>
+
+  <!-- =========================
+       EXPORT LIBRARY
+       Deferred: doesn't block HTML parsing.
+  ========================== -->
+  <script
+    defer
+    src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js">
+  </script>
+
+  <!-- =========================
+       STUDIO APPLICATION
+       Runs after HTML parsing.
+  ========================== -->
+  <script defer src="own.js"></script>
+
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="site-header">
+
+    <a href="index.html" class="brand" aria-label="Feathoria home">
+      <img
+        src="logo.jpg"
+        alt="Feathoria logo"
+        decoding="async">
+      <span>Feathoria</span>
+    </a>
+
+    <div class="header-center">
+      <span class="studio-label">CREATIVE STUDIO</span>
+      <h1>Make your words beautiful.</h1>
+      <p>Turn thoughts into something worth keeping.</p>
+    </div>
+
+    <a href="index.html" class="home-link">Home ↗</a>
+
+  </header>
+
+  <!-- =========================
+       MAIN APPLICATION
+  ========================== -->
+  <main class="studio-main">
+
+    <!-- WELCOME / HISTORY -->
+    <section class="welcome-row">
+
+      <div>
+        <p class="eyebrow">YOUR CREATIVE SPACE</p>
+        <h2>Quote & Poetry Studio</h2>
+        <p class="welcome-description">
+          Write something meaningful. Give it a beautiful form.
+        </p>
+      </div>
+
+      <div class="history-controls">
+
+        <button
+          type="button"
+          id="undoBtn"
+          class="icon-button"
+          title="Undo (Ctrl+Z)"
+          aria-label="Undo"
+          disabled>
+          ↶
+        </button>
+
+        <button
+          type="button"
+          id="redoBtn"
+          class="icon-button"
+          title="Redo (Ctrl+Y)"
+          aria-label="Redo"
+          disabled>
+          ↷
+        </button>
+
+        <button type="button" id="saveBtn" class="secondary-button">
+          Save design
+        </button>
+
+        <button type="button" id="savedDesignsBtn" class="secondary-button">
+          My designs
+        </button>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         EDITOR + PREVIEW LAYOUT
+    ========================== -->
+    <div class="studio-layout">
+
+      <!-- =========================
+           EDITOR PANEL
+      ========================== -->
+      <aside class="editor-panel" aria-label="Design editor">
+
+        <!-- EDITOR HEADER -->
+        <div class="panel-heading">
+
+          <div>
+            <span class="eyebrow">DESIGN EDITOR</span>
+            <h2>Customize</h2>
+          </div>
+
+          <button type="button" id="resetBtn" class="text-button">
+            Reset
+          </button>
+
+        </div>
+
+        <!-- =========================
+             01. TEXT
+        ========================== -->
+        <section class="editor-section">
+
+          <h3><span>01</span> Your words</h3>
+
+          <label for="quoteInput">Quote or poem</label>
+
+          <textarea
+            id="quoteInput"
+            maxlength="1200"
+            rows="5"
+            placeholder="Write something that deserves to be remembered..."></textarea>
+
+          <div class="field-meta">
+            <span id="quoteCounter">0 / 1200</span>
+            <span>Up to 1200 characters</span>
+          </div>
+
+          <label for="authorInput">Author / Signature</label>
+
+          <input
+            type="text"
+            id="authorInput"
+            maxlength="80"
+            placeholder="Your name or pen name"
+            autocomplete="off">
+
+          <div class="field-meta">
+            <span>Optional signature</span>
+            <span id="authorCounter">0 / 80</span>
+          </div>
+
+        </section>
+
+        <!-- =========================
+             02. TYPOGRAPHY
+        ========================== -->
+        <section class="editor-section">
+
+          <h3><span>02</span> Typography</h3>
+
+          <label for="fontSelect">Font family</label>
+
+          <select id="fontSelect">
+            <option value="Playfair Display">Playfair Display</option>
+            <option value="Lora">Lora</option>
+            <option value="Cormorant Garamond">Cormorant Garamond</option>
+            <option value="Dancing Script">Dancing Script</option>
+            <option value="Roboto">Roboto</option>
+            <option value="Montserrat">Montserrat</option>
+            <option value="Libre Baskerville">Libre Baskerville</option>
+          </select>
+
+          <div class="two-column">
+
+            <div>
+              <label for="fontSize">Font size</label>
+
+              <input
+                type="range"
+                id="fontSize"
+                min="16"
+                max="64"
+                value="32">
+
+              <output id="fontSizeValue">32 px</output>
+            </div>
+
+            <div>
+              <label for="letterSpacing">Letter spacing</label>
+
+              <input
+                type="range"
+                id="letterSpacing"
+                min="-2"
+                max="8"
+                step="0.5"
+                value="0">
+
+              <output id="letterSpacingValue">0 px</output>
+            </div>
+
+          </div>
+
+          <div class="two-column">
+
+            <div>
+              <label for="lineHeight">Line spacing</label>
+
+              <input
+                type="range"
+                id="lineHeight"
+                min="1"
+                max="2.5"
+                step="0.05"
+                value="1.6">
+
+              <output id="lineHeightValue">1.6</output>
+            </div>
+
+            <div>
+              <label for="textAlign">Alignment</label>
+
+              <select id="textAlign">
+                <option value="center">Center</option>
+                <option value="left">Left</option>
+                <option value="right">Right</option>
+              </select>
+            </div>
+
+          </div>
+
+          <div class="format-buttons">
+
+            <button
+              type="button"
+              id="boldBtn"
+              aria-pressed="false"
+              aria-label="Bold text">
+              B
+            </button>
+
+            <button
+              type="button"
+              id="italicBtn"
+              aria-pressed="false"
+              aria-label="Italic text">
+              I
+            </button>
+
+            <button
+              type="button"
+              id="uppercaseBtn"
+              aria-pressed="false"
+              aria-label="Uppercase text">
+              AA
+            </button>
+
+          </div>
+
+          <label for="textColor">Text color</label>
+
+          <div class="color-row">
+
+            <input type="color" id="textColor" value="#ffffff">
+
+            <span id="textColorValue">#FFFFFF</span>
+
+            <button type="button" id="whiteTextBtn" class="mini-button">
+              White
+            </button>
+
+            <button type="button" id="darkTextBtn" class="mini-button">
+              Dark
+            </button>
+
+          </div>
+
+          <label for="authorSize">Signature size</label>
+
+          <input
+            type="range"
+            id="authorSize"
+            min="12"
+            max="36"
+            value="20">
+
+          <output id="authorSizeValue">20 px</output>
+
+        </section>
+
+        <!-- =========================
+             03. BACKGROUND
+        ========================== -->
+        <section class="editor-section">
+
+          <h3><span>03</span> Background</h3>
+
+          <label>Choose a background</label>
+
+          <div class="background-grid" id="backgroundGrid">
+
+            <button type="button"
+                    class="background-swatch swatch-1 active"
+                    data-background="bg1"
+                    aria-label="Violet gradient"></button>
+
+            <button type="button"
+                    class="background-swatch swatch-2"
+                    data-background="bg2"
+                    aria-label="Lavender pink"></button>
+
+            <button type="button"
+                    class="background-swatch swatch-3"
+                    data-background="bg3"
+                    aria-label="Pastel sunset"></button>
+
+            <button type="button"
+                    class="background-swatch swatch-4"
+                    data-background="bg4"
+                    aria-label="Ocean blue"></button>
+
+            <button type="button"
+                    class="background-swatch swatch-5"
+                    data-background="bg5"
+                    aria-label="Warm sunset"></button>
+
+            <button type="button"
+                    class="background-swatch swatch-6"
+                    data-background="bg6"
+                    aria-label="Mint green"></button>
+
+            <button type="button"
+                    class="background-swatch swatch-7"
+                    data-background="bg7"
+                    aria-label="Midnight"></button>
+
+            <button type="button"
+                    class="background-swatch swatch-8"
+                    data-background="bg8"
+                    aria-label="Rose"></button>
+
+            <button type="button"
+                    class="background-swatch swatch-9"
+                    data-background="bg9"
+                    aria-label="Forest"></button>
+
+            <button type="button"
+                    class="background-swatch swatch-10"
+                    data-background="bg10"
+                    aria-label="Charcoal"></button>
+
+            <button type="button"
+                    class="background-swatch swatch-11"
+                    data-background="bg11"
+                    aria-label="Cream"></button>
+
+            <button type="button"
+                    class="background-swatch swatch-12"
+                    data-background="bg12"
+                    aria-label="Cosmic"></button>
+
+          </div>
+
+          <label for="bgUpload">Upload your own image</label>
+
+          <input
+            type="file"
+            id="bgUpload"
+            accept="image/jpeg,image/png,image/webp">
+
+          <button
+            type="button"
+            id="removeCustomBg"
+            class="text-button"
+            hidden>
+            Remove uploaded image
+          </button>
+
+          <div class="control-group">
+
+            <label for="backgroundZoom">Image zoom</label>
+
+            <input
+              type="range"
+              id="backgroundZoom"
+              min="100"
+              max="200"
+              value="100">
+
+            <output id="backgroundZoomValue">100%</output>
+
+          </div>
+
+          <div class="control-group">
+
+            <label for="backgroundX">Horizontal position</label>
+
+            <input
+              type="range"
+              id="backgroundX"
+              min="0"
+              max="100"
+              value="50">
+
+            <output id="backgroundXValue">50%</output>
+
+          </div>
+
+          <div class="control-group">
+
+            <label for="backgroundY">Vertical position</label>
+
+            <input
+              type="range"
+              id="backgroundY"
+              min="0"
+              max="100"
+              value="50">
+
+            <output id="backgroundYValue">50%</output>
+
+          </div>
+
+          <div class="control-group">
+
+            <label for="brightnessRange">Brightness</label>
+
+            <input
+              type="range"
+              id="brightnessRange"
+              min="40"
+              max="160"
+              value="100">
+
+            <output id="brightnessValue">100%</output>
+
+          </div>
+
+          <div class="control-group">
+
+            <label for="blurRange">Blur</label>
+
+            <input
+              type="range"
+              id="blurRange"
+              min="0"
+              max="10"
+              value="0">
+
+            <output id="blurValue">0 px</output>
+
+          </div>
+
+          <div class="control-group">
+
+            <label for="overlayRange">Dark overlay</label>
+
+            <input
+              type="range"
+              id="overlayRange"
+              min="0"
+              max="80"
+              value="20">
+
+            <output id="overlayValue">20%</output>
+
+          </div>
+
+        </section>
+
+        <!-- =========================
+             04. FILTERS
+        ========================== -->
+        <section class="editor-section">
+
+          <h3><span>04</span> Filters</h3>
+
+          <div class="filter-buttons" id="filterButtons">
+
+            <button
+              type="button"
+              data-filter="none"
+              class="active-filter"
+              aria-pressed="true">
+              Original
+            </button>
+
+            <button
+              type="button"
+              data-filter="dreamy"
+              aria-pressed="false">
+              Dreamy
+            </button>
+
+            <button
+              type="button"
+              data-filter="warm"
+              aria-pressed="false">
+              Warm
+            </button>
+
+            <button
+              type="button"
+              data-filter="cool"
+              aria-pressed="false">
+              Cool
+            </button>
+
+            <button
+              type="button"
+              data-filter="bw"
+              aria-pressed="false">
+              B&W
+            </button>
+
+            <button
+              type="button"
+              data-filter="vintage"
+              aria-pressed="false">
+              Vintage
+            </button>
+
+          </div>
+
+        </section>
+
+        <!-- =========================
+             05. DECORATION
+        ========================== -->
+        <section class="editor-section">
+
+          <h3><span>05</span> Finishing touches</h3>
+
+          <label class="switch-row">
+            <span>Text shadow</span>
+            <input type="checkbox" id="shadowToggle">
+          </label>
+
+          <label class="switch-row">
+            <span>Show watermark</span>
+            <input type="checkbox" id="logoToggle" checked>
+          </label>
+
+          <label for="watermarkText">Watermark text</label>
+
+          <input
+            type="text"
+            id="watermarkText"
+            maxlength="30"
+            value="FEATHORIA"
+            autocomplete="off">
+
+          <label for="watermarkOpacity">Watermark opacity</label>
+
+          <input
+            type="range"
+            id="watermarkOpacity"
+            min="10"
+            max="100"
+            value="70">
+
+          <output id="watermarkOpacityValue">70%</output>
+
+          <label for="borderStyle">Card border</label>
+
+          <select id="borderStyle">
+            <option value="none">None</option>
+            <option value="thin">Thin white</option>
+            <option value="gold">Soft gold</option>
+            <option value="double">Double white</option>
+          </select>
+
+          <label for="borderRadius">Corner roundness</label>
+
+          <input
+            type="range"
+            id="borderRadius"
+            min="0"
+            max="40"
+            value="20">
+
+          <output id="borderRadiusValue">20 px</output>
+
+        </section>
+
+        <!-- =========================
+             06. CANVAS SIZE
+        ========================== -->
+        <section class="editor-section">
+
+          <h3><span>06</span> Canvas size</h3>
+
+          <label for="aspectSelect">Design format</label>
+
+          <select id="aspectSelect">
+
+            <option value="square">Square — 1:1</option>
+            <option value="portrait">Portrait — 4:5</option>
+            <option value="story">Story — 9:16</option>
+            <option value="banner">Landscape — 16:9</option>
+
+          </select>
+
+        </section>
+
+        <!-- =========================
+             07. TEMPLATES
+        ========================== -->
+        <section class="editor-section">
+
+          <h3><span>07</span> Design templates</h3>
+
+          <p class="section-hint">
+            Choose a starting point. Your words remain unchanged.
+          </p>
+
+          <div class="template-grid">
+
+            <button type="button" data-template="midnight">Midnight</button>
+            <button type="button" data-template="minimal">Minimal</button>
+            <button type="button" data-template="romantic">Romantic</button>
+            <button type="button" data-template="poetry">Poetry</button>
+            <button type="button" data-template="vintage">Vintage</button>
+            <button type="button" data-template="cosmic">Cosmic</button>
+            <button type="button" data-template="editorial">Editorial</button>
+            <button type="button" data-template="dream">Dream</button>
+
+          </div>
+
+        </section>
+
+        <!-- RANDOM DESIGN -->
+        <button type="button" id="randomBtn" class="random-button">
+          ✦ Surprise me with a design
+        </button>
+
+      </aside>
+
+      <!-- =========================
+           PREVIEW PANEL
+      ========================== -->
+      <section class="preview-panel" aria-label="Live design preview">
+
+        <!-- PREVIEW HEADER -->
+        <div class="preview-heading">
+
+          <div>
+            <span class="eyebrow">YOUR CANVAS</span>
+            <h2>Live Preview</h2>
+          </div>
+
+          <span class="live-indicator">
+            <span></span>
+            LIVE
+          </span>
+
+        </div>
+
+        <!-- CANVAS -->
+        <div class="canvas-stage" id="canvasStage">
+
+          <div id="quotePreview" class="quote-card square">
+
+            <div
+              class="quote-background bg1"
+              id="quoteBackground">
+            </div>
+
+            <div class="quote-overlay" id="quoteOverlay">
+
+              <p id="quoteText">Your words will live here...</p>
+
+              <span id="quoteAuthor">— Your Name</span>
+
+            </div>
+
+            <div id="watermark" class="watermark">
+              FEATHORIA
+            </div>
+
+            <img
+              id="logo"
+              class="preview-logo"
+              src="logo.jpg"
+              alt="Feathoria"
+              decoding="async">
+
+          </div>
+
+        </div>
+
+        <!-- PREVIEW FOOTER -->
+        <div class="preview-footer">
+
+          <div>
+            <span class="eyebrow">CURRENT FORMAT</span>
+            <strong id="formatLabel">Square · 1:1</strong>
+          </div>
+
+          <div class="preview-actions">
+
+            <button
+              type="button"
+              id="previewResetBtn"
+              class="secondary-button">
+              Reset view
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- =========================
+             EXPORT
+        ========================== -->
+        <section class="export-panel">
+
+          <div>
+            <span class="eyebrow">READY TO SHARE?</span>
+            <h3>Export your creation</h3>
+            <p>Save your design as a high-resolution image.</p>
+          </div>
+
+          <div class="export-options">
+
+            <label for="exportFormat">File type</label>
+
+            <select id="exportFormat">
+              <option value="png">PNG — best quality</option>
+              <option value="jpeg">JPG — smaller file</option>
+            </select>
+
+            <label for="exportQuality">Export scale</label>
+
+            <select id="exportQuality">
+              <option value="1">Standard</option>
+              <option value="2" selected>High resolution</option>
+              <option value="3">Ultra resolution</option>
+            </select>
+
+          </div>
+
+          <button type="button" id="downloadBtn" class="download-button">
+            Download my creation ↗
+          </button>
+
+          <p
+            id="downloadStatus"
+            class="status-message"
+            role="status"
+            aria-live="polite">
+          </p>
+
+        </section>
+
+        <!-- =========================
+             INSPIRATION
+        ========================== -->
+        <section class="tips-panel">
+
+          <h3>A little inspiration</h3>
+
+          <p>
+            Sometimes a few honest words are enough to make something beautiful.
+          </p>
+
+          <button
+            type="button"
+            id="inspirationBtn"
+            class="text-button">
+            Give me a writing prompt ↗
+          </button>
+
+          <p
+            id="inspirationText"
+            class="inspiration-text"
+            hidden>
+          </p>
+
+        </section>
+
+      </section>
+
+    </div>
+
+    <!-- =========================
+         SAVED DESIGNS DIALOG
+    ========================== -->
+    <dialog id="savedDialog" class="saved-dialog">
+
+      <div class="dialog-heading">
+
+        <div>
+          <span class="eyebrow">YOUR COLLECTION</span>
+          <h2>Saved designs</h2>
+        </div>
+
+        <button
+          type="button"
+          id="closeSavedBtn"
+          class="icon-button"
+          aria-label="Close">
+          ×
+        </button>
+
+      </div>
+
+      <p class="section-hint">
+        Your designs are saved in this browser on this device.
+      </p>
+
+      <div id="savedDesignList" class="saved-design-list"></div>
+
+      <button
+        type="button"
+        id="closeSavedBottomBtn"
+        class="secondary-button">
+        Close
+      </button>
+
+    </dialog>
+
+    <!-- =========================
+         TOAST NOTIFICATIONS
+    ========================== -->
+    <div
+      id="toast"
+      class="toast"
+      role="status"
+      aria-live="polite">
+    </div>
+
+    <!-- =========================
+         ADVERTISEMENT
+    ========================== -->
+    <div class="ad-container">
+
+      <ins
+        class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-3455727846422624"
+        data-ad-slot="4211400293"
+        data-ad-format="auto"
+        data-full-width-responsive="true">
+      </ins>
+
+    </div>
+
+  </main>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer class="site-footer">
+
+    <p>
+      © <span id="year">2026</span>
+      Feathoria. Made for creators and dreamers ✨
+    </p>
+
+    <a href="index.html">Back to Feathoria</a>
+
+  </footer>
+
+  <!-- =========================
+       ADS INITIALIZATION
+       Does not wait for all images
+       and external resources to load.
+  ========================== -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      if (!window.adsbygoogle) return;
+
+      try {
+        window.adsbygoogle.push({});
+      } catch (error) {
+        console.warn("Ad initialization skipped:", error);
+      }
+
+    }, { once: true });
+  </script>
+
+</body>
+</html>

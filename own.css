@@ -1,0 +1,1758 @@
+
+/* =========================================================
+   FEATHORIA STUDIO — OPTIMIZED DESIGN SYSTEM
+   Cosmic editorial • Responsive • Accessible • Lightweight
+   ========================================================= */
+
+/* =========================================================
+   01. DESIGN TOKENS
+   ========================================================= */
+
+:root {
+  color-scheme: dark;
+
+  --bg: #100b20;
+  --bg-soft: #171129;
+  --bg-deep: #0c0816;
+
+  --panel: rgba(28, 20, 48, 0.94);
+  --panel-light: rgba(255, 255, 255, 0.055);
+
+  --border: rgba(255, 255, 255, 0.11);
+  --border-bright: rgba(255, 255, 255, 0.20);
+
+  --text: #f8f3ff;
+  --muted: #b8adc9;
+  --faint: #81758f;
+
+  --gold: #e9c98a;
+  --gold-light: #f6dfad;
+
+  --purple: #9b7bdb;
+  --pink: #d69acb;
+
+  --danger: #ff9999;
+  --success: #9fe0bb;
+
+  --radius: 18px;
+  --radius-small: 10px;
+
+  --shadow:
+    0 18px 55px rgba(0, 0, 0, 0.30);
+
+  --shadow-small:
+    0 8px 24px rgba(0, 0, 0, 0.20);
+
+  --content-width: 1500px;
+
+  --transition-fast: 160ms ease;
+  --transition-normal: 220ms ease;
+}
+
+
+/* =========================================================
+   02. RESET & BASE
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: #514064 #100b20;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  font-family: "Roboto", Arial, sans-serif;
+  color: var(--text);
+
+  background:
+    radial-gradient(
+      ellipse at 10% 10%,
+      rgba(105, 64, 160, 0.18),
+      transparent 38%
+    ),
+    radial-gradient(
+      ellipse at 90% 75%,
+      rgba(68, 87, 160, 0.14),
+      transparent 40%
+    ),
+    linear-gradient(
+      rgba(10, 7, 19, 0.88),
+      rgba(10, 7, 19, 0.96)
+    ),
+    url("bg.jpg") center / cover no-repeat,
+    var(--bg);
+
+  background-attachment: scroll;
+
+  overflow-x: clip;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: "Roboto", Arial, sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+button:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+::selection {
+  background: rgba(233, 201, 138, 0.35);
+  color: #fff;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+
+/* =========================================================
+   03. HEADER
+   ========================================================= */
+
+.site-header {
+  min-height: 100px;
+  padding: 17px 5%;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 2fr minmax(0, 1fr);
+  align-items: center;
+  gap: 20px;
+
+  background: rgba(13, 9, 25, 0.94);
+
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  width: fit-content;
+
+  color: var(--text);
+  text-decoration: none;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.brand img {
+  width: 44px;
+  height: 44px;
+
+  object-fit: cover;
+
+  border-radius: 12px;
+}
+
+.header-center {
+  min-width: 0;
+  text-align: center;
+}
+
+.studio-label,
+.eyebrow {
+  display: block;
+
+  color: var(--gold);
+
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.header-center h1 {
+  margin: 6px 0;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.header-center p {
+  margin: 0;
+
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.home-link {
+  justify-self: end;
+
+  color: var(--gold-light);
+  text-decoration: none;
+
+  font-size: 0.9rem;
+}
+
+.home-link:hover {
+  color: #fff;
+}
+
+
+/* =========================================================
+   04. MAIN CONTAINER
+   ========================================================= */
+
+.studio-main {
+  width: min(var(--content-width), 94%);
+  margin: 35px auto 65px;
+}
+
+.welcome-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 22px;
+
+  margin-bottom: 27px;
+}
+
+.welcome-row h2,
+.panel-heading h2,
+.preview-heading h2 {
+  margin: 7px 0;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 500;
+
+  font-size: clamp(1.55rem, 3vw, 2.1rem);
+  line-height: 1.25;
+}
+
+.welcome-description {
+  margin: 0;
+
+  color: var(--muted);
+  font-size: 0.93rem;
+  line-height: 1.6;
+}
+
+.history-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+
+/* =========================================================
+   05. BUTTON SYSTEM
+   ========================================================= */
+
+.icon-button,
+.secondary-button,
+.mini-button,
+.text-button,
+.random-button,
+.download-button {
+  cursor: pointer;
+}
+
+.icon-button,
+.secondary-button,
+.mini-button,
+.text-button,
+.filter-buttons button,
+.template-grid button,
+.random-button,
+.download-button,
+.saved-item-actions button {
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.icon-button {
+  width: 39px;
+  height: 39px;
+
+  display: inline-grid;
+  place-items: center;
+
+  padding: 0;
+
+  border: 1px solid var(--border);
+  border-radius: 11px;
+
+  background: var(--panel-light);
+
+  font-size: 1.4rem;
+}
+
+.icon-button:hover:not(:disabled) {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.secondary-button {
+  padding: 10px 15px;
+
+  border: 1px solid var(--border);
+  border-radius: 11px;
+
+  background: rgba(255, 255, 255, 0.055);
+
+  color: var(--text);
+  font-size: 0.83rem;
+}
+
+.secondary-button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.11);
+  border-color: var(--gold);
+}
+
+.text-button {
+  padding: 5px 0;
+
+  border: 0;
+  background: transparent;
+
+  color: var(--gold);
+  font-size: 0.82rem;
+}
+
+.text-button:hover {
+  color: #fff;
+}
+
+.mini-button {
+  padding: 7px 11px;
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  background: var(--panel-light);
+
+  font-size: 0.75rem;
+}
+
+.mini-button:hover {
+  border-color: var(--gold);
+  color: var(--gold-light);
+}
+
+
+/* =========================================================
+   06. STUDIO LAYOUT
+   ========================================================= */
+
+.studio-layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 430px) minmax(0, 1fr);
+  align-items: start;
+  gap: 24px;
+}
+
+.editor-panel,
+.preview-panel {
+  min-width: 0;
+
+  background: var(--panel);
+
+  border: 1px solid var(--border);
+  border-radius: 21px;
+
+  box-shadow: var(--shadow);
+}
+
+.editor-panel {
+  padding: 23px;
+}
+
+.preview-panel {
+  padding: 24px;
+}
+
+.panel-heading,
+.preview-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.panel-heading h2,
+.preview-heading h2 {
+  font-size: 1.55rem;
+}
+
+.editor-section {
+  padding: 22px 0;
+
+  border-top: 1px solid var(--border);
+}
+
+.panel-heading + .editor-section {
+  margin-top: 16px;
+}
+
+.editor-section h3 {
+  margin: 0 0 17px;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.12rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.editor-section h3 span {
+  margin-right: 9px;
+
+  color: var(--gold);
+
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+}
+
+.section-hint {
+  margin: -7px 0 15px;
+
+  color: var(--muted);
+
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   07. FORM CONTROLS
+   ========================================================= */
+
+.editor-panel label {
+  display: block;
+
+  margin: 14px 0 8px;
+
+  color: #e7dfef;
+  font-size: 0.81rem;
+  font-weight: 500;
+}
+
+.editor-panel input:not([type="range"]):not([type="checkbox"]):not([type="color"]),
+.editor-panel textarea,
+.editor-panel select,
+.export-options select {
+  display: block;
+
+  width: 100%;
+  min-height: 43px;
+
+  padding: 10px 12px;
+
+  border: 1px solid var(--border);
+  border-radius: 10px;
+
+  background: #171127;
+  color: #fff;
+
+  font-size: 0.85rem;
+
+  outline: none;
+}
+
+.editor-panel textarea {
+  min-height: 125px;
+
+  resize: vertical;
+
+  line-height: 1.65;
+}
+
+.editor-panel input:focus,
+.editor-panel textarea:focus,
+.editor-panel select:focus,
+.export-options select:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(233, 201, 138, 0.08);
+}
+
+.editor-panel input::placeholder,
+.editor-panel textarea::placeholder {
+  color: #82778f;
+}
+
+.editor-panel select option,
+.export-options select option {
+  background: #171127;
+  color: white;
+}
+
+.field-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 7px;
+
+  color: var(--faint);
+  font-size: 0.7rem;
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.control-group {
+  margin-top: 15px;
+}
+
+input[type="range"] {
+  display: block;
+  width: 100%;
+
+  accent-color: var(--gold);
+  cursor: pointer;
+}
+
+output {
+  display: block;
+
+  margin-top: 4px;
+
+  color: var(--gold-light);
+  font-size: 0.73rem;
+
+  font-variant-numeric: tabular-nums;
+}
+
+
+/* =========================================================
+   08. TYPOGRAPHY CONTROLS
+   ========================================================= */
+
+.format-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  margin-top: 15px;
+}
+
+.format-buttons button {
+  min-width: 43px;
+  height: 37px;
+
+  border: 1px solid var(--border);
+  border-radius: 9px;
+
+  background: var(--panel-light);
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.format-buttons button:nth-child(2) {
+  font-style: italic;
+}
+
+.format-buttons button:hover,
+.format-buttons button[aria-pressed="true"] {
+  background: rgba(233, 201, 138, 0.15);
+  border-color: var(--gold);
+  color: var(--gold-light);
+}
+
+.color-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.color-row input[type="color"] {
+  flex: 0 0 43px;
+
+  width: 43px;
+  height: 38px;
+
+  padding: 3px;
+
+  border: 1px solid var(--border);
+  border-radius: 9px;
+
+  background: #171127;
+
+  cursor: pointer;
+}
+
+.color-row span {
+  flex: 1;
+  min-width: 0;
+
+  color: var(--muted);
+  font-size: 0.76rem;
+
+  font-variant-numeric: tabular-nums;
+}
+
+
+/* =========================================================
+   09. BACKGROUND PICKER
+   ========================================================= */
+
+.background-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.background-swatch {
+  min-width: 0;
+  aspect-ratio: 1.2;
+
+  padding: 0;
+
+  border: 2px solid transparent;
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+.background-swatch:hover {
+  transform: scale(1.045);
+}
+
+.background-swatch.active {
+  border-color: #fff;
+  box-shadow: 0 0 0 2px var(--gold);
+}
+
+.swatch-1 {
+  background: linear-gradient(135deg, #7253b9, #c09bff);
+}
+
+.swatch-2 {
+  background: linear-gradient(135deg, #a77bc4, #f4a9c2);
+}
+
+.swatch-3 {
+  background: linear-gradient(135deg, #e88e75, #f7d7a2);
+}
+
+.swatch-4 {
+  background: linear-gradient(135deg, #00a8c9, #3558a7);
+}
+
+.swatch-5 {
+  background: linear-gradient(135deg, #a94c53, #f6a56d);
+}
+
+.swatch-6 {
+  background: linear-gradient(135deg, #559b83, #b7e9bb);
+}
+
+.swatch-7 {
+  background: linear-gradient(135deg, #080e27, #283c68);
+}
+
+.swatch-8 {
+  background: linear-gradient(135deg, #713a53, #e6a6b6);
+}
+
+.swatch-9 {
+  background: linear-gradient(135deg, #173e35, #72977a);
+}
+
+.swatch-10 {
+  background: linear-gradient(135deg, #171717, #55515b);
+}
+
+.swatch-11 {
+  background: linear-gradient(135deg, #e6d9bd, #a78e71);
+}
+
+.swatch-12 {
+  background: linear-gradient(135deg, #15102e, #6d4eae, #d38ba9);
+}
+
+
+/* =========================================================
+   10. FILTERS
+   ========================================================= */
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.filter-buttons button {
+  padding: 8px 12px;
+
+  border: 1px solid var(--border);
+  border-radius: 9px;
+
+  background: var(--panel-light);
+
+  color: var(--muted);
+  font-size: 0.75rem;
+
+  cursor: pointer;
+}
+
+.filter-buttons button:hover,
+.filter-buttons button.active-filter {
+  border-color: var(--gold);
+  background: rgba(233, 201, 138, 0.12);
+  color: var(--gold-light);
+}
+
+
+/* =========================================================
+   11. SWITCHES
+   ========================================================= */
+
+.switch-row {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+
+  margin: 16px 0 !important;
+
+  cursor: pointer;
+}
+
+.switch-row input {
+  flex: 0 0 40px;
+
+  appearance: none;
+
+  width: 40px;
+  height: 22px;
+  min-height: 22px;
+
+  margin: 0;
+
+  position: relative;
+
+  border-radius: 30px;
+
+  background: #4c4359;
+
+  cursor: pointer;
+}
+
+.switch-row input::before {
+  content: "";
+
+  position: absolute;
+
+  width: 16px;
+  height: 16px;
+
+  top: 3px;
+  left: 3px;
+
+  border-radius: 50%;
+  background: #fff;
+}
+
+.switch-row input:checked {
+  background: #8b6cc0;
+}
+
+.switch-row input:checked::before {
+  transform: translateX(18px);
+}
+
+.switch-row input:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   12. DESIGN TEMPLATES
+   ========================================================= */
+
+.template-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.template-grid button {
+  min-height: 42px;
+
+  border: 1px solid var(--border);
+  border-radius: 9px;
+
+  background: var(--panel-light);
+  color: #e9e0f3;
+
+  cursor: pointer;
+
+  font-size: 0.78rem;
+}
+
+.template-grid button:hover {
+  border-color: var(--gold);
+  color: var(--gold-light);
+  background: rgba(233, 201, 138, 0.1);
+}
+
+.random-button {
+  display: block;
+  width: 100%;
+
+  padding: 14px;
+
+  border: 1px solid rgba(233, 201, 138, 0.35);
+  border-radius: 12px;
+
+  background: linear-gradient(
+    120deg,
+    rgba(123, 84, 171, 0.3),
+    rgba(197, 134, 164, 0.22)
+  );
+
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+.random-button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-small);
+}
+
+
+/* =========================================================
+   13. PREVIEW HEADER
+   ========================================================= */
+
+.preview-heading {
+  margin-bottom: 20px;
+}
+
+.live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  color: var(--success);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.live-indicator span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--success);
+}
+
+
+/* =========================================================
+   14. CANVAS STAGE
+   ========================================================= */
+
+.canvas-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 450px;
+
+  padding: 22px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border);
+  border-radius: 16px;
+
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(118, 87, 155, 0.13),
+      transparent 35%
+    ),
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.018) 0 1px,
+      transparent 1px 12px
+    ),
+    #0d0a17;
+}
+
+
+/* =========================================================
+   15. QUOTE CARD
+   ========================================================= */
+
+.quote-card {
+  position: relative;
+  isolation: isolate;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: min(100%, 560px);
+
+  aspect-ratio: 1 / 1;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background: #26203a;
+
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.32);
+}
+
+.quote-card.portrait {
+  aspect-ratio: 4 / 5;
+}
+
+.quote-card.story {
+  width: min(100%, 360px);
+  aspect-ratio: 9 / 16;
+}
+
+.quote-card.banner {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+
+/* =========================================================
+   16. PREVIEW BACKGROUND
+   ========================================================= */
+
+.quote-background {
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transform: scale(1.04);
+}
+
+.quote-background::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, var(--overlay-opacity, 0.2));
+}
+
+
+/* =========================================================
+   17. QUOTE TEXT
+   ========================================================= */
+
+.quote-overlay {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-height: 100%;
+
+  padding: 11%;
+
+  text-align: center;
+
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+
+#quoteText {
+  margin: 0 0 22px;
+
+  color: #fff;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(18px, 3vw, 32px);
+  font-weight: 400;
+
+  line-height: 1.6;
+  letter-spacing: 0;
+
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+#quoteAuthor {
+  display: block;
+
+  color: #fff;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 20px;
+  font-style: normal;
+  line-height: 1.4;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   18. TEXT SHADOW
+   ========================================================= */
+
+.text-shadow #quoteText,
+.text-shadow #quoteAuthor {
+  text-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.75);
+}
+
+
+/* =========================================================
+   19. WATERMARK & LOGO
+   ========================================================= */
+
+.watermark {
+  position: absolute;
+  z-index: 3;
+
+  right: 18px;
+  bottom: 16px;
+
+  color: white;
+
+  font-size: 10px;
+  letter-spacing: 2px;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+.preview-logo {
+  position: absolute;
+  z-index: 3;
+
+  left: 15px;
+  bottom: 13px;
+
+  width: 34px;
+  height: 34px;
+
+  object-fit: cover;
+
+  border-radius: 8px;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   20. BACKGROUND PRESETS
+   ========================================================= */
+
+.bg1 {
+  background: linear-gradient(145deg, #7253b9, #c09bff);
+}
+
+.bg2 {
+  background: linear-gradient(145deg, #a77bc4, #f4a9c2);
+}
+
+.bg3 {
+  background: linear-gradient(145deg, #e88e75, #f7d7a2);
+}
+
+.bg4 {
+  background: linear-gradient(145deg, #00a8c9, #3558a7);
+}
+
+.bg5 {
+  background: linear-gradient(145deg, #a94c53, #f6a56d);
+}
+
+.bg6 {
+  background: linear-gradient(145deg, #559b83, #b7e9bb);
+}
+
+.bg7 {
+  background: linear-gradient(145deg, #080e27, #283c68);
+}
+
+.bg8 {
+  background: linear-gradient(145deg, #713a53, #e6a6b6);
+}
+
+.bg9 {
+  background: linear-gradient(145deg, #173e35, #72977a);
+}
+
+.bg10 {
+  background: linear-gradient(145deg, #171717, #55515b);
+}
+
+.bg11 {
+  background: linear-gradient(145deg, #e6d9bd, #a78e71);
+}
+
+.bg12 {
+  background: linear-gradient(145deg, #15102e, #6d4eae, #d38ba9);
+}
+
+/* Cream background text contrast */
+
+.bg11 + .quote-overlay #quoteText,
+.bg11 + .quote-overlay #quoteAuthor {
+  color: #30251d;
+}
+
+
+/* =========================================================
+   21. PREVIEW FOOTER
+   ========================================================= */
+
+.preview-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+
+  padding: 18px 0;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.preview-footer strong {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size: 0.86rem;
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   22. EXPORT PANEL
+   ========================================================= */
+
+.export-panel {
+  margin-top: 22px;
+  padding: 21px;
+
+  border: 1px solid rgba(233, 201, 138, 0.18);
+  border-radius: 15px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(124, 85, 167, 0.13),
+    rgba(233, 201, 138, 0.045)
+  );
+}
+
+.export-panel h3,
+.tips-panel h3 {
+  margin: 7px 0;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.export-panel p,
+.tips-panel p {
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.export-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px 13px;
+
+  margin-top: 17px;
+}
+
+.export-options label {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.export-options select {
+  grid-row: 2;
+}
+
+.download-button {
+  width: 100%;
+  min-height: 51px;
+
+  margin-top: 18px;
+  padding: 12px 16px;
+
+  border: 0;
+  border-radius: 12px;
+
+  background: linear-gradient(110deg, #8061b7, #bd83b0);
+
+  color: white;
+  font-size: 0.94rem;
+  font-weight: 700;
+}
+
+.download-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(117, 83, 166, 0.28);
+}
+
+.status-message {
+  min-height: 17px;
+
+  margin-bottom: 0;
+
+  text-align: center;
+  font-size: 0.78rem !important;
+}
+
+
+/* =========================================================
+   23. INSPIRATION
+   ========================================================= */
+
+.tips-panel {
+  margin-top: 20px;
+  padding: 20px;
+
+  border: 1px solid var(--border);
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.inspiration-text {
+  padding: 12px;
+
+  border-left: 2px solid var(--gold);
+
+  background: rgba(255, 255, 255, 0.04);
+
+  font-family: "Lora", Georgia, serif;
+  font-style: italic;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   24. SAVED DESIGNS DIALOG
+   ========================================================= */
+
+.saved-dialog {
+  width: min(540px, calc(100% - 30px));
+  max-height: 85vh;
+
+  padding: 25px;
+
+  border: 1px solid var(--border-bright);
+  border-radius: 19px;
+
+  background: #19122b;
+  color: var(--text);
+
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.55);
+}
+
+.saved-dialog::backdrop {
+  background: rgba(5, 3, 12, 0.78);
+}
+
+.dialog-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.dialog-heading h2 {
+  margin: 7px 0;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 500;
+}
+
+.saved-design-list {
+  display: grid;
+  gap: 10px;
+
+  max-height: 48vh;
+
+  overflow-y: auto;
+
+  margin: 18px 0;
+}
+
+.saved-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 12px;
+
+  border: 1px solid var(--border);
+  border-radius: 10px;
+
+  background: var(--panel-light);
+}
+
+.saved-item p {
+  min-width: 0;
+  max-width: 220px;
+
+  margin: 0;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  font-size: 0.84rem;
+}
+
+.saved-item small {
+  display: block;
+
+  margin-top: 4px;
+
+  color: var(--faint);
+}
+
+.saved-item-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.saved-item-actions button {
+  padding: 7px 9px;
+
+  border: 1px solid var(--border);
+  border-radius: 7px;
+
+  background: transparent;
+  color: var(--text);
+
+  cursor: pointer;
+  font-size: 0.72rem;
+}
+
+.saved-item-actions button:hover {
+  border-color: var(--gold);
+  color: var(--gold-light);
+}
+
+.empty-saved {
+  padding: 25px 10px;
+
+  color: var(--muted);
+  text-align: center;
+
+  font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   25. TOAST NOTIFICATIONS
+   ========================================================= */
+
+.toast {
+  position: fixed;
+  z-index: 1000;
+
+  left: 50%;
+  bottom: 25px;
+
+  width: max-content;
+  max-width: calc(100% - 30px);
+
+  padding: 12px 20px;
+
+  border: 1px solid var(--border-bright);
+  border-radius: 12px;
+
+  background: #28203b;
+  color: white;
+
+  font-size: 0.83rem;
+
+  box-shadow: var(--shadow);
+
+  opacity: 0;
+  pointer-events: none;
+
+  transform: translate(-50%, 10px);
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+
+/* =========================================================
+   26. ADVERTISEMENT
+   ========================================================= */
+
+.ad-container {
+  width: 100%;
+  max-width: 900px;
+
+  min-height: 90px;
+
+  margin: 40px auto 20px;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   27. FOOTER
+   ========================================================= */
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+
+  padding: 25px 5%;
+
+  background: rgba(9, 6, 17, 0.85);
+
+  border-top: 1px solid var(--border);
+}
+
+.site-footer p,
+.site-footer a {
+  margin: 0;
+
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.site-footer a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: #fff;
+}
+
+
+/* =========================================================
+   28. TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+  .studio-layout {
+    grid-template-columns: minmax(290px, 370px) minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .editor-panel,
+  .preview-panel {
+    padding: 18px;
+  }
+
+  .canvas-stage {
+    min-height: 380px;
+    padding: 15px;
+  }
+
+  .background-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================================
+   29. MOBILE / SMALL TABLET
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .site-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px;
+
+    padding: 15px 4%;
+  }
+
+  .brand {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .home-link {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .header-center {
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    padding-bottom: 4px;
+  }
+
+  .studio-main {
+    width: 94%;
+    margin-top: 24px;
+  }
+
+  .welcome-row {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 16px;
+  }
+
+  .history-controls {
+    width: 100%;
+  }
+
+  .studio-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 17px;
+  }
+
+  .preview-panel {
+    grid-row: 1;
+    position: static;
+  }
+
+  .editor-panel {
+    grid-row: 2;
+  }
+
+  .canvas-stage {
+    min-height: 340px;
+  }
+
+  .quote-card {
+    width: min(100%, 470px);
+  }
+
+  .quote-card.story {
+    width: min(100%, 280px);
+  }
+
+}
+
+
+/* =========================================================
+   30. SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .brand {
+    gap: 9px;
+    font-size: 1.15rem;
+  }
+
+  .brand img {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 10px;
+  }
+
+  .header-center h1 {
+    font-size: 1.35rem;
+  }
+
+  .header-center p {
+    font-size: 0.75rem;
+  }
+
+  .history-controls {
+    gap: 6px;
+  }
+
+  .history-controls .secondary-button {
+    padding: 9px 10px;
+    font-size: 0.75rem;
+  }
+
+  .editor-panel,
+  .preview-panel {
+    padding: 15px;
+    border-radius: 16px;
+  }
+
+  .canvas-stage {
+    min-height: 265px;
+    padding: 10px;
+  }
+
+  .quote-card {
+    border-radius: 13px;
+  }
+
+  .quote-overlay {
+    padding: 8%;
+  }
+
+  #quoteText {
+    font-size: clamp(17px, 5vw, 25px);
+  }
+
+  #quoteAuthor {
+    font-size: 16px;
+  }
+
+  .background-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .two-column {
+    gap: 10px;
+  }
+
+  .preview-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .site-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .export-panel {
+    padding: 16px;
+  }
+
+  .tips-panel {
+    padding: 16px;
+  }
+
+}
+
+
+/* =========================================================
+   31. VERY SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .history-controls .secondary-button {
+    flex: 1;
+  }
+
+  .two-column {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .color-row {
+    flex-wrap: wrap;
+  }
+
+  .color-row span {
+    flex-basis: 60px;
+  }
+
+  .export-options {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .export-options select {
+    grid-row: auto;
+  }
+
+}
+
+
+/* =========================================================
+   32. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+}

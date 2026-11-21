@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <meta name="theme-color" content="#171333">
+  <meta name="description" content="Take a little flight with Flappy Feather. Choose a calm, healing flight or challenge yourself in arcade mode.">
+
+  <title>Flappy Feather — Feathoria</title>
+
+  <link rel="icon" href="logo.jpg" type="image/jpeg">
+  <link rel="apple-touch-icon" href="logo.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="game.css">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-339FX3FFSG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-339FX3FFSG');
+  </script>
+</head>
+
+<body>
+
+  <!-- Background game canvases -->
+  <canvas id="gameCanvas" aria-label="Flappy Feather game area"></canvas>
+  <canvas id="particlesCanvas" aria-hidden="true"></canvas>
+
+  <!-- Top navigation -->
+  <nav class="topbar" aria-label="Game navigation">
+
+    <a href="index.html" id="backHome" class="nav-button">
+      <span aria-hidden="true">←</span>
+      <span>Feathoria</span>
+    </a>
+
+    <div class="topbar-actions">
+      <button id="wardrobeBtn" class="nav-button" type="button" aria-label="Open feather styles">
+        <span aria-hidden="true">✦</span>
+        <span id="wardrobeText">Feathers</span>
+      </button>
+
+      <button id="soundBtn" class="nav-button icon-button" type="button" aria-label="Toggle sound effects" aria-pressed="true">
+        <span id="soundIcon" aria-hidden="true">♪</span>
+        <span id="soundText">Sound On</span>
+      </button>
+
+      <button id="pauseBtn" class="nav-button" type="button" aria-label="Pause game">
+        <span id="pauseIcon" aria-hidden="true">Ⅱ</span>
+        <span id="pauseText">Pause</span>
+      </button>
+    </div>
+
+  </nav>
+
+  <!-- Game heading and score -->
+  <header class="game-header">
+    <h1>Flappy Feather</h1>
+
+    <div id="scoreContainer">
+      <div class="score-pill">
+        <span class="score-label">FLIGHT</span>
+        <span id="score" aria-live="polite">0</span>
+      </div>
+
+      <div class="score-pill">
+        <span class="score-label">BEST</span>
+        <span id="highScore">0</span>
+      </div>
+
+      <div class="score-pill" id="feathersPill">
+        <span class="score-label">PLUMES</span>
+        <span id="feathersCount">0</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mode selection -->
+  <section
+    id="modeSelector"
+    class="overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modeTitle"
+  >
+    <div class="overlay-card menu-card">
+
+      <div class="brand-mark" aria-hidden="true">✧</div>
+
+      <p class="eyebrow">A LITTLE ESCAPE</p>
+
+      <h2 id="modeTitle">Choose your flight.</h2>
+
+      <p class="menu-description">
+        Leave the noise behind.<br>
+        Just you, the sky, and a little feather.
+      </p>
+
+      <div class="mode-buttons">
+
+        <button id="modeA" class="mode-button calm-button" type="button">
+          <span class="mode-icon" aria-hidden="true">☁</span>
+
+          <span class="mode-copy">
+            <strong>Calm &amp; Healing</strong>
+            <small>Ambient pad, gentle updrafts, cloud-lantern pillars.</small>
+          </span>
+
+          <span class="mode-arrow" aria-hidden="true">→</span>
+        </button>
+
+        <button id="modeB" class="mode-button arcade-button" type="button">
+          <span class="mode-icon" aria-hidden="true">⚡</span>
+
+          <span class="mode-copy">
+            <strong>Arcade &amp; Energetic</strong>
+            <small>Crisp lift, oscillating pillars, rising pace.</small>
+          </span>
+
+          <span class="mode-arrow" aria-hidden="true">→</span>
+        </button>
+
+      </div>
+
+      <div id="milestonesPreview" class="milestones-strip" aria-label="Flight milestones"></div>
+
+      <p class="menu-footer">
+        Tap or press Space / W / ↑ to fly · P to pause · M for sound · 1 / 2 to pick mode
+      </p>
+
+    </div>
+  </section>
+
+  <!-- Feather & Trail Wardrobe -->
+  <section
+    id="wardrobeModal"
+    class="overlay hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="wardrobeTitle"
+  >
+    <div class="overlay-card wardrobe-card">
+      <p class="eyebrow">FEATHER SANCTUARY</p>
+      <h2 id="wardrobeTitle">Plume &amp; Trail Styles</h2>
+      <p class="wardrobe-balance">
+        Available Plumes: <strong id="wardrobeBalanceCount">0</strong>
+      </p>
+
+      <div id="wardrobeList" class="wardrobe-list"></div>
+
+      <div class="wardrobe-actions">
+        <button id="closeWardrobeBtn" class="primary-button" type="button">
+          Done
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gameplay instructions -->
+  <div id="instructions" class="instructions hidden" aria-live="polite">
+
+    <div class="instruction-card">
+      <span class="instruction-icon" aria-hidden="true">↑</span>
+
+      <p>Tap or press Space to lift off</p>
+
+      <small id="modeHintText">Collect glowing plumes for bonus points &amp; streaks</small>
+    </div>
+
+  </div>
+
+  <!-- Game over -->
+  <section
+    id="gameOver"
+    class="overlay game-over-overlay hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="gameOverTitle"
+  >
+    <div class="overlay-card result-card">
+
+      <div class="result-icon" aria-hidden="true">🪶</div>
+
+      <p class="eyebrow">FLIGHT COMPLETE</p>
+
+      <div id="newBestBadge" class="new-best-badge hidden">✦ New Personal Best</div>
+
+      <h2 id="gameOverTitle">Every flight ends.</h2>
+
+      <p id="finalScore" class="final-score">Score: 0 · Plumes: 0</p>
+
+      <div id="runStatsGrid" class="run-stats-grid">
+        <div class="stat-box">
+          <span class="stat-label">BEST STREAK</span>
+          <strong id="statBestStreak">0×</strong>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">MODE BEST</span>
+          <strong id="statModeBest">0</strong>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">PLUME BANK</span>
+          <strong id="statPlumeBank">0</strong>
+        </div>
+      </div>
+
+      <p id="resultMessage" class="result-message">
+        There is always another sky.
+      </p>
+
+      <div id="unlockedMilestoneBanner" class="milestone-unlocked hidden"></div>
+
+      <div class="result-buttons">
+
+        <button id="restartBtn" class="primary-button" type="button">
+          <span aria-hidden="true">↻</span>
+          Fly again
+        </button>
+
+        <button id="chooseModeBtn" class="secondary-button" type="button">
+          Choose another flight
+        </button>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Game JavaScript -->
+  <script src="game.js"></script>
+
+</body>
+</html>

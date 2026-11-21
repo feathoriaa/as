@@ -1,0 +1,2848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#111116">
+<meta name="description" content="Feathoria — a quiet corner of the internet for poems, thoughts, feelings and words that understand.">
+<meta name="keywords" content="poems, quotes, poetry, thoughts, feelings, philosophy, writing, Feathoria">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Feathoria — A World of Words">
+<meta property="og:description" content="For the ones who feel a little too much.">
+<meta property="og:image" content="logo.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Feathoria — A World of Words">
+<meta name="twitter:description" content="A quiet corner of the internet for words that understand.">
+<title>Feathoria — A World of Words</title>
+
+<link rel="icon" href="logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-339FX3FFSG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-339FX3FFSG');
+</script>
+
+<!-- Google AdSense -->
+<script async
+src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3455727846422624"
+crossorigin="anonymous"></script>
+
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #111116;
+  --bg2: #18171e;
+  --card: #1d1b24;
+  --card2: #24212c;
+  --text: #e9e3dc;
+  --muted: #a49aa9;
+  --accent: #c9a87c;
+  --accent2: #e0c9a7;
+  --border: rgba(255,255,255,.085);
+  --shadow: 0 18px 55px rgba(0,0,0,.24);
+  --radius: 22px;
+  --serif: "Playfair Display", Georgia, serif;
+  --reading: "Lora", Georgia, serif;
+  --sans: "DM Sans", sans-serif;
+  --nav-height: 76px;
+}
+
+body.light {
+  color-scheme: light;
+  --bg: #f5f0e9;
+  --bg2: #ece5db;
+  --card: #fffaf3;
+  --card2: #f2eadd;
+  --text: #29242b;
+  --muted: #766c72;
+  --accent: #947044;
+  --accent2: #76572f;
+  --border: rgba(0,0,0,.09);
+  --shadow: 0 18px 55px rgba(70,50,30,.09);
+}
+
+body.sepia {
+  color-scheme: light;
+  --bg: #e9dfcc;
+  --bg2: #ded2bc;
+  --card: #f1e7d5;
+  --card2: #e8dcc8;
+  --text: #382e24;
+  --muted: #776755;
+  --accent: #8b673a;
+  --accent2: #6f502c;
+  --border: rgba(0,0,0,.1);
+  --shadow: 0 18px 55px rgba(70,50,30,.08);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height) + 24px);
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(ellipse at 12% 0%, rgba(101,75,122,.15), transparent 34%),
+    radial-gradient(ellipse at 92% 32%, rgba(132,99,68,.09), transparent 32%),
+    var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.7;
+  transition: background-color .3s ease, color .3s ease;
+}
+
+body.light, body.sepia { background: var(--bg); }
+
+button, input { font: inherit; }
+button { cursor: pointer; background: none; border: 0; color: inherit; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+button:focus-visible, a:focus-visible, input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+::selection { background: rgba(201,168,124,.3); }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.container {
+  width: min(1120px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.serif { font-family: var(--serif); }
+.reading-font { font-family: var(--reading); }
+.muted { color: var(--muted); }
+.gold { color: var(--accent); }
+
+.eyebrow {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 10px;
+  font-weight: 700;
+  margin-bottom: 13px;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+h2 { font-size: clamp(28px, 4vw, 43px); }
+
+.section { padding: 82px 0; }
+.section-small { padding: 48px 0; }
+
+.section-heading { margin-bottom: 30px; }
+
+.section-sub {
+  color: var(--muted);
+  margin-top: 10px;
+  max-width: 580px;
+  font-size: 14px;
+}
+
+.section-heading.center { text-align: center; }
+.section-heading.center .section-sub { margin-inline: auto; }
+
+.divider {
+  width: 65px;
+  height: 1px;
+  background: var(--accent);
+  opacity: .65;
+  margin: 24px auto;
+}
+
+/* Navigation */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(17,17,22,.86);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+
+body.light .navbar,
+body.sepia .navbar {
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+}
+
+.nav-inner {
+  min-height: var(--nav-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--serif);
+  font-size: 25px;
+  letter-spacing: .4px;
+  flex-shrink: 0;
+}
+
+.logo img {
+  width: 39px;
+  height: 39px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-links a {
+  position: relative;
+  color: var(--muted);
+  font-size: 13px;
+  transition: color .2s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width .25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active { color: var(--accent2); }
+
+.nav-links a:hover::after,
+.nav-links a.active::after { width: 100%; }
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.icon-btn:hover {
+  background: var(--card2);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.menu-toggle { display: none; }
+
+/* Buttons and cards */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 12px 19px;
+  border-radius: 50px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  transition: background-color .25s ease, border-color .25s ease, color .25s ease, transform .25s ease;
+  font-size: 13px;
+}
+
+.btn:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #17141a;
+  border-color: var(--accent);
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background: var(--accent2);
+  border-color: var(--accent2);
+  color: #17141a;
+}
+
+.btn-small { padding: 8px 13px; font-size: 12px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color .3s ease, transform .3s ease, background-color .3s ease, box-shadow .3s ease;
+}
+
+.card:hover {
+  border-color: rgba(201,168,124,.3);
+}
+
+.card-lift:hover { transform: translateY(-4px); }
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--muted);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+}
+
+/* Hero */
+
+.hero {
+  min-height: 630px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 105px 0 80px;
+  isolation: isolate;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: min(600px, 90vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(140,104,153,.14), transparent 68%);
+  left: 50%;
+  top: 44%;
+  transform: translate(-50%,-50%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero::after {
+  content: "✧";
+  position: absolute;
+  right: 12%;
+  top: 17%;
+  color: var(--accent);
+  opacity: .25;
+  font-size: 34px;
+  animation: float 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  max-width: 850px;
+  margin: auto;
+}
+
+.hero h1 {
+  font-size: clamp(48px, 8vw, 88px);
+  letter-spacing: -2px;
+  line-height: 1.12;
+  margin-bottom: 22px;
+}
+
+.hero h1 span {
+  display: inline-block;
+  font-style: italic;
+  color: var(--accent2);
+}
+
+.hero-sub {
+  font-family: var(--reading);
+  color: var(--muted);
+  font-size: clamp(15px, 2vw, 19px);
+  max-width: 570px;
+  margin: 0 auto 32px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-note {
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: 34px;
+  letter-spacing: 2px;
+}
+
+.hero-signature {
+  margin-top: 48px;
+  color: var(--muted);
+  font-family: var(--reading);
+  font-style: italic;
+  font-size: 13px;
+  opacity: .8;
+}
+
+/* Search */
+
+.search-box {
+  max-width: 650px;
+  margin: 32px auto 0;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 17px 55px 17px 22px;
+  border-radius: 50px;
+  border: 1px solid var(--border);
+  outline: none;
+  background: var(--card);
+  color: var(--text);
+  font-size: 14px;
+  transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+
+.search-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(201,168,124,.08);
+}
+
+.search-icon {
+  position: absolute;
+  right: 21px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.search-hint {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+.search-results {
+  display: none;
+  margin-top: 18px;
+  text-align: left;
+}
+
+.search-results.active { display: block; }
+
+.result-list { display: grid; gap: 10px; }
+
+.result-item {
+  width: 100%;
+  display: block;
+  text-align: left;
+  padding: 17px 19px;
+  border-radius: 14px;
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: border-color .2s ease, background-color .2s ease;
+}
+
+.result-item:hover {
+  border-color: var(--accent);
+  background: var(--card2);
+}
+
+.result-item h3 { font-size: 19px; margin-bottom: 5px; }
+.result-item p { font-size: 13px; color: var(--muted); }
+
+/* Featured */
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 20px;
+}
+
+.featured-card {
+  padding: 30px;
+  min-height: 290px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+}
+
+.featured-card::after {
+  content: "“";
+  position: absolute;
+  right: 22px;
+  top: 8px;
+  color: var(--accent);
+  font-family: var(--serif);
+  font-size: 100px;
+  opacity: .07;
+  pointer-events: none;
+}
+
+.featured-card blockquote {
+  position: relative;
+  z-index: 1;
+  font-family: var(--reading);
+  font-size: clamp(18px, 2.5vw, 25px);
+  line-height: 1.8;
+  font-style: italic;
+  margin: 18px 0;
+}
+
+.featured-card .author {
+  color: var(--accent);
+  font-size: 12px;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.featured-card .icon-btn { width: 34px; height: 34px; }
+
+/* Moods */
+
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 13px;
+}
+
+.mood {
+  padding: 23px 15px;
+  text-align: center;
+  color: var(--text);
+  cursor: pointer;
+  width: 100%;
+}
+
+.mood .emoji {
+  font-size: 25px;
+  display: block;
+  margin-bottom: 9px;
+}
+
+.mood h3 { font-size: 18px; }
+
+.mood p {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 5px;
+}
+
+.mood.active {
+  border-color: var(--accent);
+  background: var(--card2);
+  box-shadow: 0 0 0 2px rgba(201,168,124,.07);
+}
+
+.mood-results { margin-top: 24px; display: none; }
+.mood-results.active { display: block; }
+
+.mood-results-inner {
+  padding: 25px;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  border-radius: var(--radius);
+}
+
+.mood-results-inner h3 {
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+.mood-results-inner .result-list {
+  margin-top: 4px;
+}
+
+/* Daily thought */
+
+.daily {
+  padding: 45px 30px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at center, rgba(130,93,130,.12), transparent 70%),
+    var(--card);
+}
+
+.daily::before {
+  content: "✧";
+  position: absolute;
+  font-size: 150px;
+  color: var(--accent);
+  opacity: .05;
+  top: -30px;
+  right: 20px;
+  pointer-events: none;
+}
+
+.daily-text {
+  position: relative;
+  font-family: var(--reading);
+  font-size: clamp(19px, 3vw, 28px);
+  line-height: 1.85;
+  max-width: 760px;
+  margin: 25px auto;
+  font-style: italic;
+}
+
+.daily-author { color: var(--accent); font-size: 12px; }
+
+/* Discovery */
+
+.discovery {
+  text-align: center;
+  padding: 55px 25px;
+  background:
+    radial-gradient(ellipse at center, rgba(201,168,124,.09), transparent 70%),
+    var(--card);
+  overflow: hidden;
+}
+
+.discovery-text {
+  max-width: 700px;
+  margin: 25px auto;
+  font-family: var(--reading);
+  font-size: clamp(19px, 3vw, 24px);
+  line-height: 1.9;
+  font-style: italic;
+}
+
+.discovery-author {
+  color: var(--accent);
+  font-size: 13px;
+  margin-bottom: 25px;
+}
+
+.discovery-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Saved collection */
+
+.saved-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.saved-item { padding: 22px; }
+.saved-item h3 { font-size: 20px; margin-bottom: 9px; }
+
+.saved-item .excerpt {
+  font-family: var(--reading);
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+.saved-item .saved-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.saved-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+/* Recently read */
+
+.recent-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 13px;
+}
+
+.recent-card {
+  padding: 19px;
+  text-align: left;
+  width: 100%;
+  color: var(--text);
+}
+
+.recent-card h3 { font-size: 18px; margin-bottom: 7px; }
+.recent-card p { color: var(--muted); font-size: 12px; }
+
+/* Explore */
+
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.explore-card {
+  padding: 25px;
+  min-height: 185px;
+  display: block;
+}
+
+.explore-card .symbol {
+  font-size: 29px;
+  margin-bottom: 15px;
+  color: var(--accent);
+}
+
+.explore-card h3 { font-size: 20px; margin-bottom: 8px; }
+.explore-card p { font-size: 12px; color: var(--muted); }
+
+.explore-card .explore-arrow {
+  display: block;
+  color: var(--accent);
+  margin-top: 17px;
+  font-size: 13px;
+  transition: transform .2s ease;
+}
+
+.explore-card:hover .explore-arrow { transform: translateX(5px); }
+
+/* About */
+
+.about-panel {
+  max-width: 760px;
+  margin: auto;
+  text-align: center;
+  padding: 35px 20px;
+}
+
+.about-panel p:last-child {
+  font-family: var(--reading);
+  font-size: 16px;
+  line-height: 2;
+}
+
+/* Ad */
+
+.ad-container {
+  margin: 38px auto;
+  max-width: 900px;
+  min-height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Footer */
+
+footer {
+  padding: 52px 0 30px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: var(--serif);
+  font-size: 29px;
+  margin-bottom: 10px;
+}
+
+footer p { color: var(--muted); font-size: 12px; }
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 22px 0;
+}
+
+.footer-links a {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.footer-links a:hover { color: var(--accent); }
+
+.footer-mantra {
+  font-family: var(--reading);
+  font-style: italic;
+  margin-top: 25px;
+  opacity: .8;
+}
+
+/* Reading modal */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.76);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  z-index: 200;
+  display: none;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.modal-overlay.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  width: min(760px, 100%);
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 35px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow);
+}
+
+.modal-close {
+  position: sticky;
+  float: right;
+  top: 0;
+  margin: -12px -12px 0 12px;
+  z-index: 3;
+}
+
+.modal-title {
+  font-size: 30px;
+  margin: 10px 40px 15px 0;
+}
+
+.modal-author {
+  color: var(--accent);
+  font-size: 13px;
+  margin-bottom: 25px;
+}
+
+.modal-text {
+  font-family: var(--reading);
+  font-size: 18px;
+  line-height: 2;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 30px;
+}
+
+.reading-controls {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.reading-controls .btn { padding: 7px 12px; }
+
+/* Focus reading */
+
+#readingModal.focus-mode {
+  padding: 0;
+  background: var(--bg);
+  backdrop-filter: none;
+}
+
+#readingModal.focus-mode .modal {
+  width: 100%;
+  max-width: 900px;
+  height: 100vh;
+  max-height: 100vh;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  padding: clamp(24px, 6vw, 80px);
+  background: var(--bg);
+}
+
+#readingModal.focus-mode .modal-text {
+  max-width: 720px;
+  margin-inline: auto;
+  font-size: clamp(18px, 2.2vw, 23px) !important;
+  line-height: 2.15;
+}
+
+#readingModal.focus-mode .modal-title,
+#readingModal.focus-mode .modal-author,
+#readingModal.focus-mode .reading-controls,
+#readingModal.focus-mode .modal-actions {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#readingModal.focus-mode .modal-title {
+  font-size: clamp(28px, 4vw, 42px);
+}
+
+/* Search overlay */
+
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(0,0,0,.78);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  display: none;
+}
+
+.search-overlay.active { display: block; }
+
+.search-overlay-box {
+  width: min(700px, 100%);
+  margin: 10vh auto 0;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.search-overlay-input {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  padding: 22px;
+  color: var(--text);
+  outline: none;
+  font-size: 17px;
+}
+
+.search-overlay-results {
+  padding: 15px;
+  max-height: 60vh;
+  overflow: auto;
+}
+
+/* Progress */
+
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--accent);
+  z-index: 500;
+  width: 0;
+  transition: width .1s linear;
+}
+
+/* Back to top */
+
+.back-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 90;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity .25s ease, transform .25s ease, background-color .2s ease, border-color .2s ease;
+}
+
+.back-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Toast */
+
+.toast {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translate(-50%, 20px);
+  background: var(--card2);
+  color: var(--text);
+  border: 1px solid var(--accent);
+  padding: 12px 20px;
+  border-radius: 50px;
+  z-index: 600;
+  font-size: 13px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease, transform .3s ease;
+  box-shadow: var(--shadow);
+  max-width: calc(100% - 30px);
+  text-align: center;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* Animation */
+
+.fade-in { animation: fadeIn .55s ease both; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-13px) rotate(12deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 950px) {
+  .nav-links { gap: 15px; }
+  .explore-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 760px) {
+  :root { --nav-height: 66px; }
+
+  .nav-inner { min-height: var(--nav-height); }
+  .logo { font-size: 22px; }
+  .logo img { width: 34px; height: 34px; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    padding: 22px max(20px, calc((100vw - 1120px)/2));
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 19px;
+    box-shadow: var(--shadow);
+  }
+
+  .nav-links.open { display: flex; }
+  .nav-links a { font-size: 14px; }
+  .menu-toggle { display: grid; }
+
+  .hero { min-height: auto; padding: 85px 0 65px; }
+  .hero h1 { letter-spacing: -1px; }
+  .section { padding: 62px 0; }
+
+  .featured-grid,
+  .saved-grid { grid-template-columns: 1fr; }
+
+  .recent-grid { grid-template-columns: repeat(2, 1fr); }
+  .mood-grid { grid-template-columns: repeat(3, 1fr); }
+
+  .featured-card { padding: 24px; }
+  .daily { padding: 30px 20px; }
+  .discovery { padding: 38px 20px; }
+
+  .modal { padding: 25px 20px; }
+  .modal-title { font-size: 26px; }
+  .modal-text { font-size: 16px; }
+
+  .hero-buttons .btn {
+    width: 100%;
+    max-width: 270px;
+  }
+
+  .nav-actions { gap: 6px; }
+  .icon-btn { width: 37px; height: 37px; }
+}
+
+@media (max-width: 480px) {
+  .container { width: min(100% - 30px, 1120px); }
+
+  .hero h1 { font-size: clamp(43px, 13vw, 61px); }
+  .hero-note { letter-spacing: 1.2px; }
+
+  .mood-grid { grid-template-columns: repeat(2, 1fr); }
+  .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  .recent-grid { grid-template-columns: 1fr; }
+
+  .explore-card { min-height: 165px; padding: 20px; }
+  .featured-card { min-height: 260px; }
+
+  .card-bottom { align-items: flex-start; }
+  .daily-text { font-size: 19px; }
+
+  .modal-overlay { padding: 10px; }
+  .modal { max-height: 95vh; }
+
+  #readingModal.focus-mode .modal {
+    padding: 24px 20px 35px;
+  }
+
+  .search-overlay-box { margin-top: 6vh; }
+}
+
+@media print {
+  .navbar, footer, .ad-container, .back-top,
+  .reading-progress, .toast, .modal-actions,
+  .reading-controls { display: none !important; }
+
+  body { background: white; color: black; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+
+<!-- NAVIGATION -->
+<nav class="navbar" aria-label="Main navigation">
+  <div class="container nav-inner">
+
+    <a href="index.html" class="logo" aria-label="Feathoria home">
+      <img src="logo.jpg" alt="Feathoria logo">
+      <span>Feathoria</span>
+    </a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="index.html" class="active">Home</a>
+      <a href="ipoems.html">Poems</a>
+      <a href="iquotes.html">Quotes</a>
+      <a href="#discover">Discover</a>
+      <a href="own.html">Create</a>
+      <a href="game.html">Game</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="openSearchBtn" title="Search (Ctrl+K)" aria-label="Open search">⌕</button>
+      <button class="icon-btn" id="cycleThemeBtn" title="Change theme" aria-label="Change theme">◐</button>
+      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+    </div>
+
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container hero-content">
+
+    <p class="eyebrow">A quiet corner of the internet</p>
+
+    <h1>Welcome to the<br><span>World of Words.</span></h1>
+
+    <p class="hero-sub">
+      For the ones who feel a little too much,
+      think a little too deeply, and find themselves
+      in words they didn't write.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#moods" class="btn btn-primary">Find words for how you feel <span>✧</span></a>
+      <button class="btn" id="heroSurpriseBtn">Surprise me ✧</button>
+    </div>
+
+    <p class="hero-note">POEMS · THOUGHTS · QUOTES · CREATION</p>
+
+    <div class="search-box">
+      <input
+        id="mainSearch"
+        class="search-input"
+        type="search"
+        placeholder="Search poems, quotes, authors, feelings..."
+        autocomplete="off"
+        aria-label="Search Feathoria"
+        aria-controls="mainSearchResults"
+      >
+      <span class="search-icon" aria-hidden="true">⌕</span>
+      <p class="search-hint">Press Ctrl + K or / to search anywhere</p>
+      <div class="search-results" id="mainSearchResults" aria-live="polite"></div>
+    </div>
+
+    <p class="hero-signature">Somewhere between a thought and a feeling, there are words.</p>
+
+  </div>
+</header>
+
+<!-- FEATURED -->
+<section class="section-small" id="featured">
+  <div class="container">
+
+    <div class="section-heading">
+      <p class="eyebrow">A few words to stay with you</p>
+      <h2>Featured words</h2>
+      <p class="section-sub">A small collection of thoughts worth spending a moment with.</p>
+    </div>
+
+    <div class="featured-grid" id="featuredGrid"></div>
+
+  </div>
+</section>
+
+<!-- MOOD SELECTOR -->
+<section class="section" id="moods">
+  <div class="container">
+
+    <div class="section-heading">
+      <p class="eyebrow">Begin with a feeling</p>
+      <h2>How are you feeling today?</h2>
+      <p class="section-sub">You don't need to explain. Just choose a feeling.</p>
+    </div>
+
+    <div class="mood-grid" id="moodGrid"></div>
+
+    <div class="mood-results" id="moodResults" aria-live="polite">
+      <div class="mood-results-inner">
+        <h3 id="moodResultTitle">Words for you</h3>
+        <div id="moodResultContent"></div>
+        <button class="btn btn-small" id="clearMoodBtn" style="margin-top:20px">Choose another feeling</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DAILY THOUGHT -->
+<section class="section-small">
+  <div class="container">
+
+    <div class="daily card">
+      <p class="eyebrow">A thought for today</p>
+      <p id="dailyDate" class="muted" style="font-size:12px"></p>
+
+      <div class="daily-text" id="dailyText"></div>
+      <div class="daily-author" id="dailyAuthor"></div>
+
+      <div class="card-actions" style="justify-content:center;margin-top:25px">
+        <button class="btn btn-small" id="dailyCopyBtn">Copy</button>
+        <button class="btn btn-small" id="dailyShareBtn">Share</button>
+        <button class="btn btn-small" id="dailySaveButton">♡ Save</button>
+        <button class="btn btn-small" id="dailyAnotherBtn">Another thought</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RANDOM DISCOVERY -->
+<section class="section" id="discover">
+  <div class="container">
+
+    <div class="section-heading">
+      <p class="eyebrow">Let chance find you</p>
+      <h2>Something unexpected</h2>
+      <p class="section-sub">
+        Perhaps the words you're looking for aren't the ones you expected.
+      </p>
+    </div>
+
+    <div class="discovery card">
+      <div id="discoveryContent">
+        <p class="muted">Click below and let the words find you.</p>
+      </div>
+
+      <div class="discovery-actions">
+        <button class="btn btn-primary" data-discover-mood="">Find me words ✧</button>
+        <button class="btn" data-discover-mood="hope">Something hopeful</button>
+        <button class="btn" data-discover-mood="existence">Something philosophical</button>
+        <button class="btn" data-discover-mood="sadness">Something melancholic</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SAVED WORDS -->
+<section class="section" id="saved">
+  <div class="container">
+
+    <div class="section-heading">
+      <p class="eyebrow">Your personal collection</p>
+      <h2>Words you kept</h2>
+      <p class="section-sub">
+        Saved privately on this device. No account required.
+      </p>
+    </div>
+
+    <div id="savedContent"></div>
+
+  </div>
+</section>
+
+<!-- RECENTLY READ -->
+<section class="section-small" id="recentSection" hidden>
+  <div class="container">
+
+    <div class="section-heading">
+      <p class="eyebrow">A path through your thoughts</p>
+      <h2>Recently read</h2>
+      <p class="section-sub">Return to something you spent time with.</p>
+    </div>
+
+    <div class="recent-grid" id="recentContent"></div>
+
+  </div>
+</section>
+
+<!-- EXPLORE -->
+<section class="section" id="explore">
+  <div class="container">
+
+    <div class="section-heading">
+      <p class="eyebrow">Explore Feathoria</p>
+      <h2>Find your own way</h2>
+      <p class="section-sub">Read, create, wander, or simply stay for a while.</p>
+    </div>
+
+    <div class="explore-grid">
+
+      <a href="ipoems.html" class="explore-card card card-lift">
+        <div class="symbol" aria-hidden="true">❧</div>
+        <h3>Poems</h3>
+        <p>Words that make feelings visible.</p>
+        <span class="explore-arrow">Explore poems →</span>
+      </a>
+
+      <a href="iquotes.html" class="explore-card card card-lift">
+        <div class="symbol" aria-hidden="true">“</div>
+        <h3>Quotes</h3>
+        <p>Thoughts worth carrying with you.</p>
+        <span class="explore-arrow">Explore quotes →</span>
+      </a>
+
+      <a href="own.html" class="explore-card card card-lift">
+        <div class="symbol" aria-hidden="true">✍</div>
+        <h3>Create</h3>
+        <p>Turn your own words into something beautiful.</p>
+        <span class="explore-arrow">Start creating →</span>
+      </a>
+
+      <a href="game.html" class="explore-card card card-lift">
+        <div class="symbol" aria-hidden="true">✧</div>
+        <h3>Flappy Feather</h3>
+        <p>A small escape for a restless mind.</p>
+        <span class="explore-arrow">Take a break →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section-small">
+  <div class="container">
+    <div class="about-panel">
+
+      <p class="eyebrow">A little about Feathoria</p>
+
+      <h2>Not everything needs to be understood.</h2>
+
+      <div class="divider"></div>
+
+      <p class="muted">
+        Feathoria was made for thoughts that have nowhere to go,
+        feelings too complicated to name, and words that somehow
+        make the silence a little less lonely.
+      </p>
+
+      <p class="footer-mantra">A place to feel. A place to think. A place to be.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- ADVERTISEMENT -->
+<div class="container">
+  <div class="ad-container">
+    <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-3455727846422624"
+      data-ad-slot="4211400293"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+
+    <div class="footer-logo">Feathoria</div>
+
+    <p>For the ones who feel a little too much.</p>
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="ipoems.html">Poems</a>
+      <a href="iquotes.html">Quotes</a>
+      <a href="own.html">Create</a>
+      <a href="game.html">Game</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+
+    <p>© <span id="year"></span> Feathoria. A world made of words.</p>
+    <p class="footer-mantra">Some words stay. Some words set us free.</p>
+
+  </div>
+</footer>
+
+<!-- READING MODAL -->
+<div class="modal-overlay" id="readingModal" aria-hidden="true">
+  <div class="modal" id="readingModalBox" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+
+    <button class="icon-btn modal-close" id="closeReadingBtn" aria-label="Close reading window">×</button>
+
+    <div class="reading-controls">
+      <button class="btn btn-small" id="fontDecreaseBtn" aria-label="Decrease text size">A−</button>
+      <button class="btn btn-small" id="fontIncreaseBtn" aria-label="Increase text size">A+</button>
+      <button class="btn btn-small" id="modalThemeBtn">Theme ◐</button>
+      <button class="btn btn-small" id="focusModeButton">Focus mode ⛶</button>
+    </div>
+
+    <p class="eyebrow" id="modalType"></p>
+    <h2 class="modal-title" id="modalTitle"></h2>
+    <p class="modal-author" id="modalAuthor"></p>
+
+    <div class="modal-text" id="modalText"></div>
+
+    <div class="modal-actions">
+      <button class="btn btn-small" id="modalCopyBtn">Copy</button>
+      <button class="btn btn-small" id="modalShareBtn">Share</button>
+      <button class="btn btn-small" id="currentSaveButton">♡ Save</button>
+      <button class="btn btn-small" id="modalCreateImageBtn">Create image</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay" aria-hidden="true">
+  <div class="search-overlay-box" role="dialog" aria-modal="true" aria-label="Search Feathoria">
+
+    <input
+      id="overlaySearch"
+      class="search-overlay-input"
+      placeholder="Search Feathoria..."
+      autocomplete="off"
+      aria-label="Search poems and quotes"
+    >
+
+    <div class="search-overlay-results" id="overlayResults" aria-live="polite">
+      <p class="muted" style="padding:10px">Search poems, quotes, moods and authors.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- BACK TO TOP -->
+<button class="icon-btn back-top" id="backTop" aria-label="Back to top">↑</button>
+
+<!-- TOAST -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+"use strict";
+
+/* =========================================================
+   FEATHORIA CONTENT DATABASE
+   Add your own poems and quotes inside this array.
+   ========================================================= */
+
+const CONTENT = [
+  {
+    id: "f001",
+    title: "The Quiet Things",
+    author: "Feathoria",
+    type: "Poem",
+    moods: ["loneliness","peace","sadness"],
+    tags: ["silence","feelings","quiet"],
+    text: `Some things are never said.
+
+They sit behind the eyes,
+between unfinished sentences,
+in the silence after
+"Are you okay?"
+
+And sometimes,
+the quietest things
+are the loudest.`,
+    featured: true
+  },
+  {
+    id: "f002",
+    title: "On Becoming",
+    author: "Feathoria",
+    type: "Thought",
+    moods: ["hope","healing","existence"],
+    tags: ["change","life","growth"],
+    text: `Perhaps becoming yourself
+is not a discovery.
+
+Perhaps it is the slow,
+painful process
+of unlearning everyone
+you were asked to be.`,
+    featured: true
+  },
+  {
+    id: "f003",
+    title: "The Unfinished Self",
+    author: "Feathoria",
+    type: "Poem",
+    moods: ["existence","overthinking","loneliness"],
+    tags: ["identity","self","thought"],
+    text: `I keep looking for myself
+in places I have already been.
+
+In old conversations,
+in forgotten dreams,
+in the person
+I almost became.
+
+But perhaps I am not lost.
+
+Perhaps I am simply
+unfinished.`,
+    featured: false
+  },
+  {
+    id: "f004",
+    title: "A Little Hope",
+    author: "Feathoria",
+    type: "Thought",
+    moods: ["hope","healing","peace"],
+    tags: ["hope","tomorrow","life"],
+    text: `You do not have to believe
+that everything will be beautiful.
+
+Just leave a little room
+for the possibility
+that it might.`,
+    featured: false
+  },
+  {
+    id: "f005",
+    title: "The Weight of Thought",
+    author: "Feathoria",
+    type: "Poem",
+    moods: ["overthinking","sadness","existence"],
+    tags: ["mind","thought","anxiety"],
+    text: `My mind is a room
+with too many doors.
+
+Every thought opens another.
+Every answer becomes a question.
+
+And somewhere inside,
+I am still searching
+for the window.`,
+    featured: false
+  },
+  {
+    id: "f006",
+    title: "Somewhere Between",
+    author: "Feathoria",
+    type: "Poem",
+    moods: ["love","sadness","nostalgia"],
+    tags: ["love","memory","loss"],
+    text: `We existed somewhere
+between what we said
+and what we meant.
+
+A place neither of us
+knew how to stay in.
+
+And perhaps that was
+the whole tragedy.`,
+    featured: false
+  },
+  {
+    id: "f007",
+    title: "To Be Alive",
+    author: "Feathoria",
+    type: "Thought",
+    moods: ["existence","hope","overthinking"],
+    tags: ["life","philosophy","meaning"],
+    text: `It is strange
+to be alive.
+
+To be made of atoms
+that somehow learned
+to ask where they came from.
+
+To look at the universe
+and feel both
+insignificant
+and infinite.`,
+    featured: false
+  },
+  {
+    id: "f008",
+    title: "The Lonely Moon",
+    author: "Feathoria",
+    type: "Poem",
+    moods: ["loneliness","peace","sadness"],
+    tags: ["night","moon","silence"],
+    text: `The moon never asks
+why the night is dark.
+
+It simply stays,
+quietly holding
+what little light
+it has.`,
+    featured: false
+  },
+  {
+    id: "f009",
+    title: "Let It Be",
+    author: "Feathoria",
+    type: "Thought",
+    moods: ["healing","peace","hope"],
+    tags: ["acceptance","life","healing"],
+    text: `Not everything
+needs an answer.
+
+Some things need time.
+Some things need distance.
+Some things need you
+to stop carrying them.`,
+    featured: false
+  },
+  {
+    id: "f010",
+    title: "A Letter to Tomorrow",
+    author: "Feathoria",
+    type: "Poem",
+    moods: ["hope","nostalgia","healing"],
+    tags: ["tomorrow","future","life"],
+    text: `Dear tomorrow,
+
+I don't know
+what you will bring.
+
+But I hope
+I meet you
+as someone who has learned
+to be a little kinder
+to themselves.`,
+    featured: false
+  },
+  {
+    id: "f011",
+    title: "Love, Unspoken",
+    author: "Feathoria",
+    type: "Poem",
+    moods: ["love","loneliness","nostalgia"],
+    tags: ["love","silence","feelings"],
+    text: `I never told you.
+
+Not because
+I had nothing to say,
+
+but because
+every word seemed
+smaller than
+what I felt.`,
+    featured: false
+  },
+  {
+    id: "f012",
+    title: "The Question",
+    author: "Feathoria",
+    type: "Thought",
+    moods: ["existence","overthinking"],
+    tags: ["philosophy","meaning","questions"],
+    text: `Perhaps the universe
+does not owe us meaning.
+
+Perhaps meaning
+is simply something
+we create
+while trying
+to understand it.`,
+    featured: false
+  },
+  {
+    id: "f013",
+    title: "After Rain",
+    author: "Feathoria",
+    type: "Poem",
+    moods: ["hope","peace","healing"],
+    tags: ["rain","nature","peace"],
+    text: `The rain leaves
+without explaining itself.
+
+The earth does not ask
+why it came.
+
+And somehow,
+everything begins
+again.`,
+    featured: false
+  },
+  {
+    id: "f014",
+    title: "The Things We Carry",
+    author: "Feathoria",
+    type: "Thought",
+    moods: ["sadness","healing","nostalgia"],
+    tags: ["memory","past","feelings"],
+    text: `We carry things
+that no one can see.
+
+Old words.
+Almosts.
+What-ifs.
+
+And sometimes,
+putting something down
+is the bravest thing
+we do.`,
+    featured: false
+  },
+  {
+    id: "f015",
+    title: "Quietly",
+    author: "Feathoria",
+    type: "Poem",
+    moods: ["peace","loneliness","healing"],
+    tags: ["quiet","peace","silence"],
+    text: `I want a life
+that does not need
+to be explained.
+
+A little sunlight.
+A little silence.
+A mind that rests.
+
+And the freedom
+to simply exist.`,
+    featured: false
+  }
+];
+
+/* =========================================================
+   MOOD DATABASE
+   ========================================================= */
+
+const MOODS = [
+  {id:"loneliness",emoji:"🌙",title:"Lonely",desc:"For the quiet nights"},
+  {id:"sadness",emoji:"🌧️",title:"Sad",desc:"When things feel heavy"},
+  {id:"love",emoji:"🫀",title:"In love",desc:"For feelings without words"},
+  {id:"overthinking",emoji:"🌀",title:"Overthinking",desc:"For a restless mind"},
+  {id:"healing",emoji:"🌱",title:"Healing",desc:"Slowly finding yourself"},
+  {id:"hope",emoji:"☀️",title:"Hopeful",desc:"A little light ahead"},
+  {id:"peace",emoji:"🕊️",title:"Peaceful",desc:"For moments of stillness"},
+  {id:"existence",emoji:"∞",title:"Existence",desc:"Questions without answers"},
+  {id:"nostalgia",emoji:"🍂",title:"Nostalgic",desc:"For things that have passed"}
+];
+
+/* =========================================================
+   DAILY THOUGHTS
+   ========================================================= */
+
+const DAILY_THOUGHTS = [
+  {text:"Perhaps we are not lost. Perhaps we are simply walking without a map in a world that demands directions.",author:"Feathoria"},
+  {text:"You are allowed to outgrow the version of yourself that everyone else learned to love.",author:"Feathoria"},
+  {text:"Some days, surviving the noise inside your head is enough of an accomplishment.",author:"Feathoria"},
+  {text:"The universe is under no obligation to explain itself. Neither are you.",author:"Feathoria"},
+  {text:"Not every unfinished thing is a failure. Some things are still becoming.",author:"Feathoria"},
+  {text:"You can miss a place, a person, or a version of yourself without wanting to return.",author:"Feathoria"},
+  {text:"Maybe peace is not the absence of thoughts, but the freedom to let them pass.",author:"Feathoria"},
+  {text:"There is a strange beauty in beginning again with no audience.",author:"Feathoria"},
+  {text:"You don't have to turn every wound into wisdom. Sometimes it is enough to heal.",author:"Feathoria"},
+  {text:"Somewhere, your future self is grateful that you kept going.",author:"Feathoria"},
+  {text:"A life does not need to be extraordinary to be worth living.",author:"Feathoria"},
+  {text:"Perhaps the answer is not to become less sensitive, but to find a world that doesn't punish sensitivity.",author:"Feathoria"}
+];
+
+/* =========================================================
+   STATE & STORAGE
+   ========================================================= */
+
+const STORAGE_SAVED = "feathoria_saved_v2";
+const STORAGE_THEME = "feathoria_theme_v2";
+const STORAGE_RECENT = "feathoria_recent_v2";
+
+const contentById = new Map(CONTENT.map(item => [item.id, item]));
+
+const dom = {
+  readingProgress: document.getElementById("readingProgress"),
+  navLinks: document.getElementById("navLinks"),
+  menuToggle: document.getElementById("menuToggle"),
+  openSearchBtn: document.getElementById("openSearchBtn"),
+  cycleThemeBtn: document.getElementById("cycleThemeBtn"),
+  heroSurpriseBtn: document.getElementById("heroSurpriseBtn"),
+  mainSearch: document.getElementById("mainSearch"),
+  mainSearchResults: document.getElementById("mainSearchResults"),
+  featuredGrid: document.getElementById("featuredGrid"),
+  moodGrid: document.getElementById("moodGrid"),
+  moodResults: document.getElementById("moodResults"),
+  moodResultTitle: document.getElementById("moodResultTitle"),
+  moodResultContent: document.getElementById("moodResultContent"),
+  clearMoodBtn: document.getElementById("clearMoodBtn"),
+  dailyDate: document.getElementById("dailyDate"),
+  dailyText: document.getElementById("dailyText"),
+  dailyAuthor: document.getElementById("dailyAuthor"),
+  dailyCopyBtn: document.getElementById("dailyCopyBtn"),
+  dailyShareBtn: document.getElementById("dailyShareBtn"),
+  dailySaveButton: document.getElementById("dailySaveButton"),
+  dailyAnotherBtn: document.getElementById("dailyAnotherBtn"),
+  discoverySection: document.getElementById("discover"),
+  discoveryContent: document.getElementById("discoveryContent"),
+  savedContent: document.getElementById("savedContent"),
+  recentSection: document.getElementById("recentSection"),
+  recentContent: document.getElementById("recentContent"),
+  year: document.getElementById("year"),
+  readingModal: document.getElementById("readingModal"),
+  readingModalBox: document.getElementById("readingModalBox"),
+  closeReadingBtn: document.getElementById("closeReadingBtn"),
+  fontDecreaseBtn: document.getElementById("fontDecreaseBtn"),
+  fontIncreaseBtn: document.getElementById("fontIncreaseBtn"),
+  modalThemeBtn: document.getElementById("modalThemeBtn"),
+  focusModeButton: document.getElementById("focusModeButton"),
+  modalType: document.getElementById("modalType"),
+  modalTitle: document.getElementById("modalTitle"),
+  modalAuthor: document.getElementById("modalAuthor"),
+  modalText: document.getElementById("modalText"),
+  modalCopyBtn: document.getElementById("modalCopyBtn"),
+  modalShareBtn: document.getElementById("modalShareBtn"),
+  currentSaveButton: document.getElementById("currentSaveButton"),
+  modalCreateImageBtn: document.getElementById("modalCreateImageBtn"),
+  searchOverlay: document.getElementById("searchOverlay"),
+  overlaySearch: document.getElementById("overlaySearch"),
+  overlayResults: document.getElementById("overlayResults"),
+  backTop: document.getElementById("backTop"),
+  toast: document.getElementById("toast")
+};
+
+let savedItems = loadSaved();
+let savedIdSet = new Set(savedItems.map(item => item.id));
+let recentIds = loadRecent();
+let activeTheme = "dark";
+let currentItem = null;
+let discoveryItem = null;
+let fontSize = 18;
+let dailyIndex = 0;
+let toastTimer = null;
+let previousFocus = null;
+
+function safeGet(key, fallback = null) {
+  try {
+    const value = localStorage.getItem(key);
+    return value === null ? fallback : value;
+  } catch {
+    return fallback;
+  }
+}
+
+function safeSet(key, value) {
+  try {
+    localStorage.setItem(key, value);
+    return true;
+  } catch {
+    showToast("Storage is unavailable in this browser.");
+    return false;
+  }
+}
+
+function safeJSON(value, fallback) {
+  try {
+    return JSON.parse(value);
+  } catch {
+    return fallback;
+  }
+}
+
+function loadSaved() {
+  const data = safeJSON(safeGet(STORAGE_SAVED, "[]"), []);
+  return Array.isArray(data) ? data.filter(item =>
+    item && typeof item.id === "string" &&
+    typeof item.text === "string"
+  ) : [];
+}
+
+function syncSavedSet() {
+  savedIdSet = new Set(savedItems.map(item => item.id));
+}
+
+function saveStorage() {
+  syncSavedSet();
+  safeSet(STORAGE_SAVED, JSON.stringify(savedItems));
+}
+
+function isSaved(id) {
+  return savedIdSet.has(id);
+}
+
+/* =========================================================
+   UTILITIES
+   ========================================================= */
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
+}
+
+function formatText(text) {
+  return escapeHTML(text).replace(/\n/g, "<br>");
+}
+
+function truncateExcerpt(text, maxLength) {
+  const clean = String(text ?? "");
+  return clean.length > maxLength ? `${clean.slice(0, maxLength)}…` : clean;
+}
+
+function showToast(message) {
+  dom.toast.textContent = message;
+  dom.toast.classList.add("show");
+
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => dom.toast.classList.remove("show"), 2400);
+}
+
+function findItem(id) {
+  const contentItem = contentById.get(id);
+  if (contentItem) return contentItem;
+
+  if (String(id).startsWith("daily-")) {
+    const index = Number(String(id).slice(6));
+    if (Number.isInteger(index) && DAILY_THOUGHTS[index]) {
+      return getDailyItem(index);
+    }
+  }
+
+  return savedItems.find(item => item.id === id) || null;
+}
+
+function getShareText(item) {
+  return `"${item.text}"\n— ${item.author}\n\n${location.href}`;
+}
+
+async function copyText(text) {
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+
+      const successful = document.execCommand("copy");
+      textarea.remove();
+
+      if (!successful) throw new Error("Copy failed");
+    }
+
+    showToast("Copied to clipboard ✧");
+  } catch {
+    showToast("Couldn't copy. Please try again.");
+  }
+}
+
+async function shareText(text, title) {
+  if (navigator.share) {
+    try {
+      await navigator.share({title, text});
+    } catch (error) {
+      if (error.name !== "AbortError") {
+        showToast("Sharing wasn't available.");
+      }
+    }
+  } else {
+    await copyText(text);
+  }
+}
+
+/* =========================================================
+   SAVING & COLLECTION REFRESH
+   ========================================================= */
+
+function refreshSavedDependentViews() {
+  renderSaved();
+  renderFeatured();
+  renderRecent();
+  updateSaveButtons();
+}
+
+function toggleSaved(item) {
+  if (!item) return;
+
+  const index = savedItems.findIndex(saved => saved.id === item.id);
+
+  if (index >= 0) {
+    savedItems.splice(index, 1);
+    showToast("Removed from saved words");
+  } else {
+    savedItems.unshift({
+      id: item.id,
+      title: item.title,
+      author: item.author,
+      type: item.type,
+      text: item.text,
+      moods: item.moods || [],
+      tags: item.tags || []
+    });
+    showToast("Saved to your collection ♡");
+  }
+
+  saveStorage();
+  refreshSavedDependentViews();
+}
+
+function updateSaveButtons() {
+  if (currentItem) {
+    dom.currentSaveButton.textContent = isSaved(currentItem.id) ? "♥ Saved" : "♡ Save";
+  }
+
+  dom.dailySaveButton.textContent = isSaved(getDailyItem(dailyIndex).id) ? "♥ Saved" : "♡ Save";
+}
+
+/* =========================================================
+   FEATURED
+   ========================================================= */
+
+function renderFeatured() {
+  const featured = CONTENT.filter(item => item.featured).slice(0, 2);
+
+  dom.featuredGrid.innerHTML = featured.map(item => `
+    <article class="featured-card card card-lift">
+      <div>
+        <p class="eyebrow">${escapeHTML(item.type)}</p>
+        <blockquote>${formatText(item.text)}</blockquote>
+        <p class="author">— ${escapeHTML(item.author)}</p>
+      </div>
+
+      <div class="card-bottom">
+        <button class="btn btn-small" data-open-id="${escapeHTML(item.id)}">Read more →</button>
+        <div class="card-actions">
+          <button class="icon-btn" data-copy-id="${escapeHTML(item.id)}" title="Copy" aria-label="Copy ${escapeHTML(item.title)}">⧉</button>
+          <button class="icon-btn" data-save-id="${escapeHTML(item.id)}" title="Save" aria-label="Save ${escapeHTML(item.title)}">
+            ${isSaved(item.id) ? "♥" : "♡"}
+          </button>
+        </div>
+      </div>
+    </article>
+  `).join("");
+}
+
+/* =========================================================
+   MOODS
+   ========================================================= */
+
+function renderMoods() {
+  dom.moodGrid.innerHTML = MOODS.map(mood => `
+    <button class="mood card card-lift" data-mood-id="${escapeHTML(mood.id)}" aria-pressed="false">
+      <span class="emoji" aria-hidden="true">${mood.emoji}</span>
+      <h3>${escapeHTML(mood.title)}</h3>
+      <p>${escapeHTML(mood.desc)}</p>
+    </button>
+  `).join("");
+}
+
+function selectMood(moodId) {
+  const mood = MOODS.find(item => item.id === moodId);
+  if (!mood) return;
+
+  const results = CONTENT.filter(item =>
+    Array.isArray(item.moods) && item.moods.includes(moodId)
+  );
+
+  dom.moodGrid.querySelectorAll(".mood").forEach(button => {
+    const active = button.dataset.moodId === moodId;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+
+  dom.moodResults.classList.add("active");
+  dom.moodResultTitle.textContent =
+    `${mood.emoji} Words for when you're ${mood.title.toLowerCase()}`;
+
+  if (!results.length) {
+    dom.moodResultContent.innerHTML = `<p class="muted">No words found yet. More will be added soon.</p>`;
+  } else {
+    dom.moodResultContent.innerHTML = `
+      <div class="result-list">
+        ${results.map(item => `
+          <button class="result-item" data-open-id="${escapeHTML(item.id)}">
+            <h3>${escapeHTML(item.title)}</h3>
+            <p>${escapeHTML(truncateExcerpt(item.text, 150))}</p>
+            <p style="margin-top:7px;color:var(--accent)">— ${escapeHTML(item.author)}</p>
+          </button>
+        `).join("")}
+      </div>
+    `;
+  }
+
+  dom.moodResults.scrollIntoView({behavior: reducedMotion() ? "auto" : "smooth", block:"nearest"});
+}
+
+function clearMood() {
+  dom.moodResults.classList.remove("active");
+
+  dom.moodGrid.querySelectorAll(".mood").forEach(button => {
+    button.classList.remove("active");
+    button.setAttribute("aria-pressed", "false");
+  });
+}
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+function searchContent(query) {
+  const normalized = query.trim().toLowerCase();
+  if (!normalized) return [];
+
+  return CONTENT.filter(item => {
+    const searchable = [
+      item.title,
+      item.author,
+      item.type,
+      item.text,
+      ...(item.moods || []),
+      ...(item.tags || [])
+    ].join(" ").toLowerCase();
+
+    return searchable.includes(normalized);
+  }).slice(0, 20);
+}
+
+function renderSearchResults(results, target) {
+  if (!results.length) {
+    target.innerHTML = `<div class="empty-state">No words found. Try another search.</div>`;
+    return;
+  }
+
+  target.innerHTML = `
+    <div class="result-list">
+      ${results.map(item => `
+        <button class="result-item" data-open-id="${escapeHTML(item.id)}">
+          <h3>${escapeHTML(item.title)}</h3>
+          <p>${escapeHTML(truncateExcerpt(item.text, 110))}</p>
+          <p style="margin-top:5px;color:var(--accent)">— ${escapeHTML(item.author)} · ${escapeHTML(item.type)}</p>
+        </button>
+      `).join("")}
+    </div>
+  `;
+}
+
+dom.mainSearch.addEventListener("input", () => {
+  const query = dom.mainSearch.value;
+
+  if (!query.trim()) {
+    dom.mainSearchResults.classList.remove("active");
+    dom.mainSearchResults.innerHTML = "";
+    return;
+  }
+
+  dom.mainSearchResults.classList.add("active");
+  renderSearchResults(searchContent(query), dom.mainSearchResults);
+});
+
+function openSearch() {
+  previousFocus = document.activeElement;
+  dom.searchOverlay.classList.add("active");
+  dom.searchOverlay.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+
+  setTimeout(() => dom.overlaySearch.focus(), 50);
+}
+
+function closeSearch() {
+  if (!dom.searchOverlay.classList.contains("active")) return;
+
+  dom.searchOverlay.classList.remove("active");
+  dom.searchOverlay.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+
+  dom.overlaySearch.value = "";
+  dom.overlayResults.innerHTML =
+    `<p class="muted" style="padding:10px">Search poems, quotes, moods and authors.</p>`;
+
+  if (previousFocus && typeof previousFocus.focus === "function") {
+    previousFocus.focus();
+  }
+}
+
+dom.searchOverlay.addEventListener("click", event => {
+  if (event.target === dom.searchOverlay) closeSearch();
+});
+
+dom.overlaySearch.addEventListener("input", function() {
+  const query = this.value;
+
+  if (!query.trim()) {
+    dom.overlayResults.innerHTML =
+      `<p class="muted" style="padding:10px">Search poems, quotes, moods and authors.</p>`;
+    return;
+  }
+
+  renderSearchResults(searchContent(query), dom.overlayResults);
+});
+
+/* =========================================================
+   READING MODAL
+   ========================================================= */
+
+function openReading(id) {
+  const item = findItem(id);
+  if (!item) {
+    showToast("This piece could not be found.");
+    return;
+  }
+
+  currentItem = item;
+  previousFocus = document.activeElement;
+
+  dom.modalType.textContent = item.type || "Words";
+  dom.modalTitle.textContent = item.title || "Untitled";
+  dom.modalAuthor.textContent = "— " + (item.author || "Unknown");
+  dom.modalText.textContent = item.text || "";
+  dom.modalText.style.fontSize = fontSize + "px";
+
+  dom.readingModal.classList.add("active");
+  dom.readingModal.setAttribute("aria-hidden", "false");
+
+  document.body.style.overflow = "hidden";
+
+  updateSaveButtons();
+  addRecent(item.id);
+
+  setTimeout(() => dom.closeReadingBtn.focus(), 30);
+}
+
+function closeReading() {
+  if (!dom.readingModal.classList.contains("active")) return;
+
+  dom.readingModal.classList.remove("active", "focus-mode");
+  dom.readingModal.setAttribute("aria-hidden", "true");
+  dom.focusModeButton.textContent = "Focus mode ⛶";
+
+  document.body.style.overflow = "";
+
+  if (previousFocus && typeof previousFocus.focus === "function") {
+    previousFocus.focus();
+  }
+}
+
+dom.readingModal.addEventListener("click", event => {
+  if (event.target === dom.readingModal) closeReading();
+});
+
+function toggleFocusMode() {
+  const enabled = dom.readingModal.classList.toggle("focus-mode");
+  dom.focusModeButton.textContent = enabled ? "Exit focus ⤢" : "Focus mode ⛶";
+  showToast(enabled ? "Focus reading enabled" : "Focus reading disabled");
+}
+
+function changeFont(amount) {
+  fontSize = Math.max(13, Math.min(32, fontSize + amount));
+  dom.modalText.style.fontSize = fontSize + "px";
+}
+
+function copyCurrent() {
+  if (currentItem) copyText(getShareText(currentItem));
+}
+
+function shareCurrent() {
+  if (currentItem) shareText(getShareText(currentItem), currentItem.title);
+}
+
+function toggleSaveCurrent() {
+  if (currentItem) toggleSaved(currentItem);
+}
+
+function quickCopy(id) {
+  const item = findItem(id);
+  if (item) copyText(getShareText(item));
+}
+
+function quickSave(id) {
+  const item = findItem(id);
+  if (item) toggleSaved(item);
+}
+
+function createImageCurrent() {
+  if (!currentItem) return;
+
+  const encoded = encodeURIComponent(currentItem.text);
+  const author = encodeURIComponent(currentItem.author || "Feathoria");
+
+  window.location.href = `own.html?text=${encoded}&author=${author}`;
+}
+
+/* =========================================================
+   DAILY THOUGHT
+   ========================================================= */
+
+function getDayIndex() {
+  const date = new Date();
+  const start = new Date(date.getFullYear(), 0, 0);
+  const diff = date - start;
+  return Math.floor(diff / 86400000);
+}
+
+function getDailyItem(index) {
+  const thought = DAILY_THOUGHTS[index];
+
+  return {
+    id: "daily-" + index,
+    title: "Daily Thought",
+    author: thought.author,
+    type: "Thought",
+    text: thought.text,
+    moods: ["hope", "peace"],
+    tags: ["daily"]
+  };
+}
+
+function displayDailyThought(index) {
+  const thought = DAILY_THOUGHTS[index];
+  if (!thought) return;
+
+  dom.dailyText.textContent = thought.text;
+  dom.dailyAuthor.textContent = "— " + thought.author;
+  updateSaveButtons();
+}
+
+function renderDaily() {
+  dailyIndex = getDayIndex() % DAILY_THOUGHTS.length;
+
+  dom.dailyDate.textContent =
+    new Date().toLocaleDateString(undefined, {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    });
+
+  displayDailyThought(dailyIndex);
+}
+
+function anotherDaily() {
+  if (DAILY_THOUGHTS.length < 2) return;
+
+  const previousIndex = dailyIndex;
+  while (dailyIndex === previousIndex) {
+    dailyIndex = Math.floor(Math.random() * DAILY_THOUGHTS.length);
+  }
+
+  displayDailyThought(dailyIndex);
+}
+
+function copyDaily() {
+  copyText(getShareText(getDailyItem(dailyIndex)));
+}
+
+function shareDaily() {
+  const item = getDailyItem(dailyIndex);
+  shareText(getShareText(item), "Feathoria — Daily Thought");
+}
+
+function saveDaily() {
+  toggleSaved(getDailyItem(dailyIndex));
+}
+
+/* =========================================================
+   RANDOM DISCOVERY
+   ========================================================= */
+
+function discoverRandom(mood) {
+  if (!CONTENT.length) {
+    showToast("Couldn't find any words right now.");
+    return;
+  }
+
+  let pool = mood
+    ? CONTENT.filter(item => item.moods.includes(mood))
+    : CONTENT.slice();
+
+  if (!pool.length) pool = CONTENT.slice();
+
+  let available = pool.length > 1 && discoveryItem
+    ? pool.filter(item => item.id !== discoveryItem.id)
+    : pool;
+
+  if (!available.length) available = pool;
+
+  const item = available[Math.floor(Math.random() * available.length)];
+  if (!item) return;
+
+  discoveryItem = item;
+
+  dom.discoveryContent.innerHTML = `
+    <p class="eyebrow">${escapeHTML(item.type)}</p>
+    <h2>${escapeHTML(item.title)}</h2>
+    <div class="discovery-text">${formatText(item.text)}</div>
+    <div class="discovery-author">— ${escapeHTML(item.author)}</div>
+
+    <div class="card-actions" style="justify-content:center;margin-bottom:25px">
+      <button class="btn btn-small" data-open-id="${escapeHTML(item.id)}">Read fully</button>
+      <button class="btn btn-small" data-copy-id="${escapeHTML(item.id)}">Copy</button>
+      <button class="btn btn-small" data-save-id="${escapeHTML(item.id)}">
+        ${isSaved(item.id) ? "♥ Saved" : "♡ Save"}
+      </button>
+    </div>
+  `;
+
+  dom.discoveryContent.classList.remove("fade-in");
+  void dom.discoveryContent.offsetWidth;
+  dom.discoveryContent.classList.add("fade-in");
+
+  dom.discoverySection.scrollIntoView({
+    behavior: reducedMotion() ? "auto" : "smooth",
+    block: "start"
+  });
+}
+
+/* =========================================================
+   SAVED LIBRARY
+   ========================================================= */
+
+function renderSaved() {
+  if (!savedItems.length) {
+    dom.savedContent.innerHTML = `
+      <div class="empty-state">
+        <p style="font-size:30px;margin-bottom:10px">♡</p>
+        <p>You haven't saved any words yet.</p>
+        <p style="font-size:12px;margin-top:8px">
+          When something speaks to you, keep it here.
+        </p>
+      </div>
+    `;
+    return;
+  }
+
+  dom.savedContent.innerHTML = `
+    <div class="saved-toolbar">
+      <p class="muted">${savedItems.length} saved item${savedItems.length === 1 ? "" : "s"}</p>
+      <button class="btn btn-small" id="exportSavedBtn">Export collection ↓</button>
+    </div>
+
+    <div class="saved-grid">
+      ${savedItems.map(item => `
+        <article class="saved-item card">
+          <h3>${escapeHTML(item.title || "Untitled")}</h3>
+          <p class="excerpt">${escapeHTML(truncateExcerpt(item.text || "", 180))}</p>
+          <p class="gold" style="font-size:12px;margin-top:10px">— ${escapeHTML(item.author || "Unknown")}</p>
+
+          <div class="saved-actions">
+            <button class="btn btn-small" data-open-id="${escapeHTML(item.id)}">Read</button>
+            <button class="btn btn-small" data-copy-id="${escapeHTML(item.id)}">Copy</button>
+            <button class="btn btn-small" data-remove-saved-id="${escapeHTML(item.id)}">Remove</button>
+          </div>
+        </article>
+      `).join("")}
+    </div>
+  `;
+}
+
+function removeSaved(id) {
+  savedItems = savedItems.filter(item => item.id !== id);
+  saveStorage();
+  refreshSavedDependentViews();
+  showToast("Removed from your collection");
+}
+
+function exportSaved() {
+  if (!savedItems.length) {
+    showToast("Your collection is empty");
+    return;
+  }
+
+  const text = savedItems.map(item =>
+    `${item.title}\n— ${item.author}\n\n${item.text}\n\n${"─".repeat(40)}\n\n`
+  ).join("");
+
+  const blob = new Blob([text], {type: "text/plain;charset=utf-8"});
+  const url = URL.createObjectURL(blob);
+
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "my-feathoria-collection.txt";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  showToast("Collection exported");
+}
+
+/* =========================================================
+   RECENTLY READ
+   ========================================================= */
+
+function loadRecent() {
+  const recent = safeJSON(safeGet(STORAGE_RECENT, "[]"), []);
+  return Array.isArray(recent) ? recent.filter(id => typeof id === "string") : [];
+}
+
+function getRecent() {
+  return recentIds;
+}
+
+function addRecent(id) {
+  recentIds = [id, ...recentIds.filter(value => value !== id)].slice(0, 6);
+  safeSet(STORAGE_RECENT, JSON.stringify(recentIds));
+  renderRecent();
+}
+
+function renderRecent() {
+  const recent = recentIds
+    .map(id => findItem(id))
+    .filter(Boolean)
+    .slice(0, 6);
+
+  if (!recent.length) {
+    dom.recentSection.hidden = true;
+    return;
+  }
+
+  dom.recentSection.hidden = false;
+
+  dom.recentContent.innerHTML = recent.map(item => `
+    <button class="recent-card card card-lift" data-open-id="${escapeHTML(item.id)}">
+      <p class="eyebrow">${escapeHTML(item.type || "Words")}</p>
+      <h3>${escapeHTML(item.title || "Untitled")}</h3>
+      <p>— ${escapeHTML(item.author || "Unknown")}</p>
+    </button>
+  `).join("");
+}
+
+/* =========================================================
+   THEME
+   ========================================================= */
+
+const THEME_META_COLORS = {
+  dark: "#111116",
+  light: "#f5f0e9",
+  sepia: "#e9dfcc"
+};
+
+function applyTheme(theme) {
+  const allowed = ["dark", "light", "sepia"];
+  activeTheme = allowed.includes(theme) ? theme : "dark";
+
+  document.body.classList.remove("light", "sepia");
+
+  if (activeTheme !== "dark") {
+    document.body.classList.add(activeTheme);
+  }
+
+  document.documentElement.style.colorScheme =
+    activeTheme === "dark" ? "dark" : "light";
+
+  safeSet(STORAGE_THEME, activeTheme);
+
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  if (themeMeta) {
+    themeMeta.content = THEME_META_COLORS[activeTheme];
+  }
+}
+
+function cycleTheme() {
+  const themes = ["dark", "light", "sepia"];
+  const next = themes[(themes.indexOf(activeTheme) + 1) % themes.length];
+
+  applyTheme(next);
+  showToast(next.charAt(0).toUpperCase() + next.slice(1) + " theme");
+}
+
+function loadTheme() {
+  applyTheme(safeGet(STORAGE_THEME, "dark"));
+}
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+function setMenuOpen(open) {
+  dom.navLinks.classList.toggle("open", open);
+  dom.menuToggle.setAttribute("aria-expanded", String(open));
+  dom.menuToggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+  dom.menuToggle.textContent = open ? "×" : "☰";
+}
+
+function toggleMenu() {
+  setMenuOpen(!dom.navLinks.classList.contains("open"));
+}
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: reducedMotion() ? "auto" : "smooth"
+  });
+}
+
+/* =========================================================
+   EVENT DELEGATION & KEYBOARD SHORTCUTS
+   ========================================================= */
+
+function bindEvents() {
+  dom.openSearchBtn.addEventListener("click", openSearch);
+  dom.cycleThemeBtn.addEventListener("click", cycleTheme);
+  dom.menuToggle.addEventListener("click", toggleMenu);
+  dom.heroSurpriseBtn.addEventListener("click", () => discoverRandom());
+  dom.clearMoodBtn.addEventListener("click", clearMood);
+
+  dom.dailyCopyBtn.addEventListener("click", copyDaily);
+  dom.dailyShareBtn.addEventListener("click", shareDaily);
+  dom.dailySaveButton.addEventListener("click", saveDaily);
+  dom.dailyAnotherBtn.addEventListener("click", anotherDaily);
+
+  dom.discoverySection.addEventListener("click", event => {
+    const moodBtn = event.target.closest("[data-discover-mood]");
+    if (moodBtn) {
+      const mood = moodBtn.dataset.discoverMood || undefined;
+      discoverRandom(mood);
+    }
+  });
+
+  dom.moodGrid.addEventListener("click", event => {
+    const moodBtn = event.target.closest("[data-mood-id]");
+    if (moodBtn) selectMood(moodBtn.dataset.moodId);
+  });
+
+  document.addEventListener("click", event => {
+    const actionEl = event.target.closest("[data-open-id], [data-copy-id], [data-save-id], [data-remove-saved-id], #exportSavedBtn");
+    if (!actionEl) return;
+
+    if (actionEl.id === "exportSavedBtn") {
+      exportSaved();
+      return;
+    }
+
+    if (actionEl.dataset.openId) {
+      openReading(actionEl.dataset.openId);
+      return;
+    }
+
+    if (actionEl.dataset.copyId) {
+      quickCopy(actionEl.dataset.copyId);
+      return;
+    }
+
+    if (actionEl.dataset.saveId) {
+      quickSave(actionEl.dataset.saveId);
+      return;
+    }
+
+    if (actionEl.dataset.removeSavedId) {
+      removeSaved(actionEl.dataset.removeSavedId);
+    }
+  });
+
+  dom.closeReadingBtn.addEventListener("click", closeReading);
+  dom.fontDecreaseBtn.addEventListener("click", () => changeFont(-1));
+  dom.fontIncreaseBtn.addEventListener("click", () => changeFont(1));
+  dom.modalThemeBtn.addEventListener("click", cycleTheme);
+  dom.focusModeButton.addEventListener("click", toggleFocusMode);
+  dom.modalCopyBtn.addEventListener("click", copyCurrent);
+  dom.modalShareBtn.addEventListener("click", shareCurrent);
+  dom.currentSaveButton.addEventListener("click", toggleSaveCurrent);
+  dom.modalCreateImageBtn.addEventListener("click", createImageCurrent);
+
+  dom.backTop.addEventListener("click", scrollToTop);
+
+  dom.navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => setMenuOpen(false));
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 760) {
+      setMenuOpen(false);
+    }
+  });
+}
+
+document.addEventListener("keydown", event => {
+  const key = event.key.toLowerCase();
+
+  if ((event.ctrlKey || event.metaKey) && key === "k") {
+    event.preventDefault();
+    openSearch();
+    return;
+  }
+
+  if (event.key === "Escape") {
+    closeSearch();
+    closeReading();
+    setMenuOpen(false);
+    return;
+  }
+
+  const typing = ["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)
+    || document.activeElement.isContentEditable;
+
+  if (key === "/" && !typing) {
+    event.preventDefault();
+    openSearch();
+  }
+
+  if (
+    event.key === "Tab" &&
+    dom.readingModal.classList.contains("active")
+  ) {
+    trapModalFocus(event);
+  }
+});
+
+function trapModalFocus(event) {
+  const focusable = [...dom.readingModalBox.querySelectorAll(
+    'button:not([disabled]), a[href], input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+  )].filter(element => element.offsetParent !== null);
+
+  if (!focusable.length) return;
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
+}
+
+/* =========================================================
+   SCROLL EFFECTS
+   ========================================================= */
+
+function updateScrollUI() {
+  const scrollTop = window.scrollY;
+  const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const percent = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+
+  dom.readingProgress.style.width = percent + "%";
+  dom.backTop.classList.toggle("visible", scrollTop > 450);
+}
+
+window.addEventListener("scroll", updateScrollUI, {passive: true});
+
+function reducedMotion() {
+  return window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+/* =========================================================
+   INITIALIZE
+   ========================================================= */
+
+function initFeathoria() {
+  dom.year.textContent = new Date().getFullYear();
+
+  bindEvents();
+  loadTheme();
+  renderFeatured();
+  renderMoods();
+  renderDaily();
+  renderSaved();
+  renderRecent();
+  updateScrollUI();
+}
+
+initFeathoria();
+
+/* Public helpers for future Feathoria features */
+window.Feathoria = {
+  version: "4.0.0",
+  search: searchContent,
+  openReading,
+  discoverRandom,
+  selectMood,
+  cycleTheme,
+  getSaved: () => [...savedItems],
+  getRecent: () => [...getRecent()]
+};
+</script>
+
+</body>
+</html>
