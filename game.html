@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#171333">
+  <meta name="description" content="Take a little flight with Flappy Feather. Choose a calm, healing flight or challenge yourself in arcade mode.">
+
+  <title>Flappy Feather — Feathoria</title>
+
+  <link rel="icon" href="logo.jpg" type="image/jpeg">
+  <link rel="apple-touch-icon" href="logo.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="game.css">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-339FX3FFSG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-339FX3FFSG');
+  </script>
+</head>
+
+<body>
+
+  <!-- Background game canvases -->
+  <canvas id="gameCanvas" aria-label="Flappy Feather game area"></canvas>
+  <canvas id="particlesCanvas" aria-hidden="true"></canvas>
+
+  <!-- Top navigation -->
+  <nav class="topbar" aria-label="Game navigation">
+    <a href="index.html" id="backHome" class="nav-button">
+      <span aria-hidden="true">←</span>
+      <span>Feathoria</span>
+    </a>
+
+    <div class="topbar-actions">
+      <button id="questsBtn" class="nav-button" type="button" aria-label="Open daily quests">
+        <span aria-hidden="true">☀</span>
+        <span id="questsText">Quests</span>
+        <span id="questsBadge" class="nav-dot hidden"></span>
+      </button>
+
+      <button id="wardrobeBtn" class="nav-button" type="button" aria-label="Open feather sanctuary">
+        <span aria-hidden="true">✦</span>
+        <span id="wardrobeText">Sanctuary</span>
+        <span id="sanctuaryBadge" class="nav-dot hidden"></span>
+      </button>
+
+      <button id="soundBtn" class="nav-button icon-button" type="button" aria-label="Toggle sound effects" aria-pressed="true">
+        <span id="soundIcon" aria-hidden="true">♪</span>
+        <span id="soundText">Sound On</span>
+      </button>
+
+      <button id="pauseBtn" class="nav-button" type="button" aria-label="Pause game">
+        <span id="pauseIcon" aria-hidden="true">Ⅱ</span>
+        <span id="pauseText">Pause</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Game heading and score -->
+  <header class="game-header">
+    <h1>Flappy Feather</h1>
+
+    <div id="scoreContainer">
+      <div class="score-pill" id="scorePill">
+        <span class="score-label">FLIGHT</span>
+        <span id="score" aria-live="polite">0</span>
+      </div>
+
+      <div class="score-pill">
+        <span class="score-label">BEST</span>
+        <span id="highScore">0</span>
+      </div>
+
+      <div class="score-pill" id="feathersPill">
+        <span class="score-label">PLUMES</span>
+        <span id="feathersCount">0</span>
+      </div>
+    </div>
+
+    <!-- Active Power-ups & Biome HUD -->
+    <div id="activeEffectsBar" class="effects-bar" aria-live="polite"></div>
+  </header>
+
+  <!-- Dash / Gust Action Button -->
+  <button id="gustBtn" class="gust-fab hidden" type="button" aria-label="Activate Feather Gust Dash">
+    <span class="gust-icon" aria-hidden="true">༄</span>
+    <span class="gust-label">GUST READY</span>
+  </button>
+
+  <!-- Mode selection -->
+  <section
+    id="modeSelector"
+    class="overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modeTitle"
+  >
+    <div class="overlay-card menu-card">
+      <div class="brand-mark" aria-hidden="true">✧</div>
+      <p class="eyebrow">A LITTLE ESCAPE</p>
+      <h2 id="modeTitle">Choose your flight.</h2>
+
+      <p class="menu-description">
+        Leave the noise behind.<br>
+        Just you, the sky, and a little feather.
+      </p>
+
+      <div class="mode-buttons">
+        <button id="modeA" class="mode-button calm-button" type="button">
+          <span class="mode-icon" aria-hidden="true">☁</span>
+          <span class="mode-copy">
+            <strong>Calm &amp; Healing</strong>
+            <small>Ambient pad, gentle updrafts, cloud-lantern pillars.</small>
+          </span>
+          <span class="mode-arrow" aria-hidden="true">→</span>
+        </button>
+
+        <button id="modeB" class="mode-button arcade-button" type="button">
+          <span class="mode-icon" aria-hidden="true">⚡</span>
+          <span class="mode-copy">
+            <strong>Arcade &amp; Energetic</strong>
+            <small>Crisp lift, shifting pillars, power-up orbs, rising pace.</small>
+          </span>
+          <span class="mode-arrow" aria-hidden="true">→</span>
+        </button>
+      </div>
+
+      <div id="milestonesPreview" class="milestones-strip" aria-label="Flight milestones"></div>
+
+      <p class="menu-footer">
+        Tap / Space to flap · Hold to glide · Swipe → or Shift/E for Gust · P to pause
+      </p>
+    </div>
+  </section>
+
+  <!-- Daily Quests Modal -->
+  <section
+    id="questsModal"
+    class="overlay hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="questsTitle"
+  >
+    <div class="overlay-card wardrobe-card">
+      <p class="eyebrow">SKY RITUALS</p>
+      <h2 id="questsTitle">Daily Flight Quests</h2>
+      <p class="wardrobe-balance">
+        Plume Bank: <strong id="questsBalanceCount">0</strong> · Complete rituals for rewards
+      </p>
+
+      <div id="questToast" class="sanctuary-toast hidden" role="status" aria-live="polite"></div>
+      <div id="questsList" class="wardrobe-list"></div>
+
+      <div class="wardrobe-actions">
+        <button id="closeQuestsBtn" class="primary-button" type="button">
+          Done
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feather, Companion & Upgrade Sanctuary -->
+  <section
+    id="wardrobeModal"
+    class="overlay hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="wardrobeTitle"
+  >
+    <div class="overlay-card wardrobe-card">
+      <p class="eyebrow">FEATHER SANCTUARY</p>
+      <h2 id="wardrobeTitle">Plumes, Spirits &amp; Blessings</h2>
+      <p class="wardrobe-balance">
+        Available Plumes: <strong id="wardrobeBalanceCount">0</strong> ·
+        <span id="unlockedCollectionCount">0 collected</span>
+      </p>
+
+      <!-- Live Loadout Showcase Banner -->
+      <div id="sanctuaryShowcase" class="sanctuary-showcase">
+        <div class="showcase-bird-cluster" aria-hidden="true">
+          <span id="showcaseFeatherOrb" class="showcase-feather-orb"></span>
+          <span id="showcaseSpiritBadge" class="showcase-spirit-badge">✧</span>
+        </div>
+        <div class="showcase-meta">
+          <strong id="showcaseTitle">Mode Harmony + Solo Flight</strong>
+          <small id="showcasePerkText">Collect Plumes &amp; Golden Lotuses to unlock new styles, spirits &amp; blessings.</small>
+        </div>
+      </div>
+
+      <div id="sanctuaryToast" class="sanctuary-toast hidden" role="status" aria-live="polite"></div>
+
+      <div class="sanctuary-tabs three-tabs" role="tablist">
+        <button id="tabSkins" class="tab-btn active" type="button" role="tab" aria-selected="true">
+          Feathers
+        </button>
+        <button id="tabCompanions" class="tab-btn" type="button" role="tab" aria-selected="false">
+          Spirits
+        </button>
+        <button id="tabUpgrades" class="tab-btn" type="button" role="tab" aria-selected="false">
+          Blessings
+        </button>
+      </div>
+
+      <div id="wardrobeList" class="wardrobe-list"></div>
+      <div id="companionsList" class="wardrobe-list hidden"></div>
+      <div id="upgradesList" class="wardrobe-list hidden"></div>
+
+      <div class="wardrobe-actions">
+        <button id="closeWardrobeBtn" class="primary-button" type="button">
+          Done
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gameplay instructions -->
+  <div id="instructions" class="instructions hidden" aria-live="polite">
+    <div class="instruction-card">
+      <span class="instruction-icon" aria-hidden="true">↑</span>
+      <p>Tap or Space to flap · Hold to glide</p>
+      <small id="modeHintText">Collect plumes &amp; orbs · Swipe → or Shift for Gust Dash</small>
+    </div>
+  </div>
+
+  <!-- Game over -->
+  <section
+    id="gameOver"
+    class="overlay game-over-overlay hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="gameOverTitle"
+  >
+    <div class="overlay-card result-card">
+      <div class="result-icon" aria-hidden="true">🪶</div>
+      <p class="eyebrow">FLIGHT COMPLETE</p>
+
+      <div id="newBestBadge" class="new-best-badge hidden">✦ New Personal Best</div>
+
+      <h2 id="gameOverTitle">Every flight ends.</h2>
+
+      <p id="finalScore" class="final-score">Score: 0 · Plumes: 0</p>
+
+      <div id="runStatsGrid" class="run-stats-grid">
+        <div class="stat-box">
+          <span class="stat-label">BEST STREAK</span>
+          <strong id="statBestStreak">0×</strong>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">MODE BEST</span>
+          <strong id="statModeBest">0</strong>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">PLUME BANK</span>
+          <strong id="statPlumeBank">0</strong>
+        </div>
+      </div>
+
+      <p id="resultMessage" class="result-message">
+        There is always another sky.
+      </p>
+
+      <div id="unlockedMilestoneBanner" class="milestone-unlocked hidden"></div>
+
+      <div class="result-buttons">
+        <button id="restartBtn" class="primary-button" type="button">
+          <span aria-hidden="true">↻</span>
+          Fly again
+        </button>
+
+        <button id="shareScoreBtn" class="secondary-button" type="button">
+          <span aria-hidden="true">✦</span>
+          <span id="shareScoreText">Share flight record</span>
+        </button>
+
+        <button id="chooseModeBtn" class="secondary-button" type="button">
+          Choose another flight
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <script src="game.js"></script>
+</body>
+</html>

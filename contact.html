@@ -1,0 +1,319 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contact Us | Feathoria</title>
+
+  <meta name="description" content="Contact Feathoria. Share your questions, feedback, ideas, or suggestions. We'd love to hear from you.">
+  <meta name="theme-color" content="#101323">
+
+  <!-- Favicon -->
+  <link rel="icon" href="logo.jpg" type="image/jpeg">
+  <link rel="apple-touch-icon" href="logo.jpg">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-339FX3FFSG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-339FX3FFSG');
+  </script>
+
+  <!-- Google AdSense -->
+  <script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3455727846422624"
+    crossorigin="anonymous">
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="contact.css">
+</head>
+
+<body>
+
+  <!-- Background decoration -->
+  <div class="background-glow glow-one"></div>
+  <div class="background-glow glow-two"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="index.html" class="brand" aria-label="Feathoria homepage">
+      <img src="logo.jpg" alt="Feathoria logo" class="logo">
+      <span class="brand-name">Feathoria</span>
+    </a>
+
+    <a href="index.html" class="home-link">
+      <span aria-hidden="true">←</span>
+      <span>Home</span>
+    </a>
+  </nav>
+
+  <!-- Main content -->
+  <main class="main-content">
+
+    <section class="contact-container">
+
+      <!-- Intro -->
+      <div class="contact-header">
+
+        <div class="contact-icon" aria-hidden="true">
+          <span>✉</span>
+        </div>
+
+        <p class="eyebrow">LET'S CONNECT</p>
+
+        <h1>Contact <span>Us</span></h1>
+
+        <p class="intro-text">
+          Every thought, suggestion, and message matters.
+          If you have something to share, we'd love to hear from you.
+        </p>
+
+      </div>
+
+      <!-- Form -->
+      <form
+        id="contactForm"
+        action="https://formspree.io/f/meovjeqj"
+        method="POST"
+      >
+
+        <!-- Honeypot anti-spam field -->
+        <div class="honeypot" aria-hidden="true">
+          <label for="website">Leave this field empty</label>
+          <input
+            type="text"
+            id="website"
+            name="_gotcha"
+            tabindex="-1"
+            autocomplete="off"
+          >
+        </div>
+
+        <!-- Name -->
+        <div class="form-group">
+          <label for="name">Your name</label>
+
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="What should we call you?"
+            autocomplete="name"
+            maxlength="100"
+            required
+          >
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email address</label>
+
+          <input
+            type="email"
+            id="email"
+            name="_replyto"
+            placeholder="you@example.com"
+            autocomplete="email"
+            maxlength="150"
+            required
+          >
+        </div>
+
+        <!-- Subject -->
+        <div class="form-group">
+          <label for="subject">Subject</label>
+
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            placeholder="What's on your mind?"
+            maxlength="150"
+            required
+          >
+        </div>
+
+        <!-- Message -->
+        <div class="form-group">
+          <label for="message">Your message</label>
+
+          <textarea
+            id="message"
+            name="message"
+            rows="6"
+            maxlength="5000"
+            placeholder="Write your thoughts here..."
+            required
+          ></textarea>
+
+          <div class="message-footer">
+            <span>Feel free to express yourself.</span>
+            <span id="charCount">0 / 5000</span>
+          </div>
+        </div>
+
+        <!-- Status -->
+        <div
+          id="formStatus"
+          class="form-status"
+          role="status"
+          aria-live="polite"
+        ></div>
+
+        <!-- Submit -->
+        <button type="submit" id="submitBtn" class="submit-btn">
+
+          <span class="button-text">Send Message</span>
+
+          <span class="button-arrow" aria-hidden="true">↗</span>
+
+        </button>
+
+        <p class="privacy-note">
+          Your message is sent privately and will only be used to respond to you.
+        </p>
+
+      </form>
+
+    </section>
+
+    <!-- Small footer -->
+    <footer class="page-footer">
+      <p>Made with a little thought and a lot of feeling.</p>
+      <p>© <span id="year"></span> Feathoria</p>
+    </footer>
+
+  </main>
+
+  <!-- AdSense -->
+  <div class="ad-container">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3455727846422624"
+         data-ad-slot="4211400293"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const form = document.getElementById("contactForm");
+      const submitBtn = document.getElementById("submitBtn");
+      const formStatus = document.getElementById("formStatus");
+      const messageInput = document.getElementById("message");
+      const charCount = document.getElementById("charCount");
+      const yearElement = document.getElementById("year");
+
+      const buttonText = submitBtn.querySelector(".button-text");
+
+      // Current year
+      if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+      }
+
+      // Character counter
+      messageInput.addEventListener("input", () => {
+        charCount.textContent =
+          `${messageInput.value.length} / 5000`;
+      });
+
+      // Status messages
+      function showStatus(message, type) {
+        formStatus.textContent = message;
+        formStatus.className = `form-status ${type}`;
+      }
+
+      // Submit form
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.classList.add("loading");
+        buttonText.textContent = "Sending...";
+        formStatus.className = "form-status";
+        formStatus.textContent = "";
+
+        const formData = new FormData(form);
+
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: formData,
+            headers: {
+              "Accept": "application/json"
+            }
+          });
+
+          if (response.ok) {
+            showStatus("Your message has been sent successfully.", "success");
+
+            // Redirect after successful submission
+            setTimeout(() => {
+              window.location.href = "thankyou.html";
+            }, 700);
+
+          } else {
+            let errorMessage =
+              "We couldn't send your message. Please try again.";
+
+            try {
+              const data = await response.json();
+
+              if (data.errors && data.errors.length) {
+                errorMessage = data.errors
+                  .map(error => error.message)
+                  .join(" ");
+              }
+            } catch {
+              // Keep default error message.
+            }
+
+            showStatus(errorMessage, "error");
+
+            submitBtn.disabled = false;
+            submitBtn.classList.remove("loading");
+            buttonText.textContent = "Send Message";
+          }
+
+        } catch (error) {
+          showStatus(
+            "Connection error. Please check your internet and try again.",
+            "error"
+          );
+
+          submitBtn.disabled = false;
+          submitBtn.classList.remove("loading");
+          buttonText.textContent = "Send Message";
+        }
+      });
+
+    });
+  </script>
+
+</body>
+</html>
